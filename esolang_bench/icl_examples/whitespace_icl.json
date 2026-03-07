@@ -1,0 +1,23 @@
+{
+  "language": "whitespace",
+  "icl_examples": [
+    {
+      "id": "ICL1",
+      "title": "Print Letter A",
+      "question": "Print the letter 'A' (ASCII 65) to stdout.",
+      "program": "   \t     \t\n\t\n  \n\n\n",
+      "io_examples": [
+        {"input": "", "output": "A"}
+      ]
+    },
+    {
+      "id": "ICL2",
+      "title": "Print Number 42",
+      "question": "Print the number 42 to stdout.",
+      "program": "   \t \t \t \n\t\n \t\n\n\n",
+      "io_examples": [
+        {"input": "", "output": "42"}
+      ]
+    }
+  ]
+}

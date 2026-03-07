@@ -1,0 +1,237 @@
+{
+  "metadata": {
+    "name": "EsoLang Output Prediction Dataset",
+    "version": "1.0",
+    "description": "A benchmark dataset where LLMs must predict the output of esoteric programming language code given specific inputs. Tests understanding of esoteric language semantics.",
+    "total_problems": 20,
+    "task_type": "output_prediction",
+    "languages_covered": ["Brainfuck", "Befunge-98", "Whitespace", "Unlambda", "Shakespeare"],
+    "problems_per_language": 4
+  },
+  "problems": [
+    {
+      "id": "OP-BF01",
+      "language": "Brainfuck",
+      "difficulty": "easy",
+      "title": "Simple Character Output",
+      "description": "Given the following Brainfuck program that outputs characters, predict what will be printed to stdout. The program uses loops to build ASCII values and outputs them with '.' command.",
+      "code": ">+++++++++[<++++++++>-]<.>+++[<+++++++++++>-]<.",
+      "input": "",
+      "expected_output": "Hi",
+      "explanation": "Cell 0 is set to 9*8=72 (ASCII 'H'), output. Then cell 0 gets 3*11=33 more to reach 105 (ASCII 'i'), output. Result: 'Hi'."
+    },
+    {
+      "id": "OP-BF02",
+      "language": "Brainfuck",
+      "difficulty": "medium",
+      "title": "Input Echo with Modification",
+      "description": "This Brainfuck program reads a character, increments its ASCII value by 1, and outputs it. Predict the output for the given input.",
+      "code": ",+.",
+      "input": "A",
+      "expected_output": "B",
+      "explanation": "The program reads 'A' (ASCII 65), increments to 66, outputs 'B'."
+    },
+    {
+      "id": "OP-BF03",
+      "language": "Brainfuck",
+      "difficulty": "medium",
+      "title": "Echo Input Characters",
+      "description": "This Brainfuck program reads characters from input and outputs them unchanged (cat program). Predict the output for the given input.",
+      "code": ",[.,]",
+      "input": "abc",
+      "expected_output": "abc",
+      "explanation": "The program reads a character, outputs it, and loops until input is exhausted. For input 'abc', it outputs 'abc'."
+    },
+    {
+      "id": "OP-BF04",
+      "language": "Brainfuck",
+      "difficulty": "hard",
+      "title": "Character Transformation",
+      "description": "This Brainfuck program reads a character and outputs the character that is 3 positions ahead in ASCII. Predict the output for input 'A'.",
+      "code": ",+++.",
+      "input": "A",
+      "expected_output": "D",
+      "explanation": "Reads 'A' (ASCII 65), adds 3 to get 68, outputs 'D'. The + command increments the current cell value."
+    },
+    {
+      "id": "OP-BF98-01",
+      "language": "Befunge-98",
+      "difficulty": "easy",
+      "title": "Simple Arithmetic Output",
+      "description": "This Befunge-98 program performs arithmetic and outputs the result. Predict the output.",
+      "code": "35*2+.@",
+      "input": "",
+      "expected_output": "17",
+      "explanation": "Pushes 3 and 5, multiplies to get 15, pushes 2, adds to get 17, outputs as integer."
+    },
+    {
+      "id": "OP-BF98-02",
+      "language": "Befunge-98",
+      "difficulty": "medium",
+      "title": "Conditional Direction",
+      "description": "This Befunge-98 program uses the greater-than operator and conditional branching. The ` operator compares two values. Predict the output.",
+      "code": "52`!#v_\"seY\">:#,_@\n     >\"oN\">:#,_@",
+      "input": "",
+      "expected_output": "Yes",
+      "explanation": "Pushes 5 and 2, compares with ` (5>2=1), negates with ! (0), horizontal-if branches right to output 'Yes'."
+    },
+    {
+      "id": "OP-BF98-03",
+      "language": "Befunge-98",
+      "difficulty": "medium",
+      "title": "Direct Sum Calculation",
+      "description": "This Befunge-98 program pushes multiple numbers onto the stack and adds them together. Predict the output.",
+      "code": "12345++++.@",
+      "input": "",
+      "expected_output": "15",
+      "explanation": "Pushes 1, 2, 3, 4, 5 onto stack, then adds: 4+5=9, 3+9=12, 2+12=14, 1+14=15. Outputs 15."
+    },
+    {
+      "id": "OP-BF98-04",
+      "language": "Befunge-98",
+      "difficulty": "hard",
+      "title": "String Reversal Output",
+      "description": "This Befunge-98 program pushes characters, reverses them using the stack, and outputs. Predict the output.",
+      "code": "\"dcba\",,,,.@",
+      "input": "",
+      "expected_output": "abcd",
+      "explanation": "Pushes 'dcba' onto stack (reversed), outputs 4 characters which come out in LIFO order as 'abcd'."
+    },
+    {
+      "id": "OP-WS01",
+      "language": "Whitespace",
+      "difficulty": "easy",
+      "title": "Push and Print Number",
+      "description": "This Whitespace program pushes a number onto the stack and prints it. The code uses [S]=space, [T]=tab, [N]=newline. Predict the output.",
+      "code": "[S][S][S][T][S][T][S][N][T][N][S][T][N][N][N]",
+      "code_readable": "Push 10, Print as number, End",
+      "input": "",
+      "expected_output": "10",
+      "explanation": "Pushes binary 1010 (decimal 10) to stack, prints as integer."
+    },
+    {
+      "id": "OP-WS02",
+      "language": "Whitespace",
+      "difficulty": "medium",
+      "title": "Simple Arithmetic",
+      "description": "This Whitespace program pushes two numbers, adds them, and prints the result. Predict the output.",
+      "code": "[S][S][S][T][T][N][S][S][S][T][S][T][N][T][S][S][S][T][N][S][T][N][N][N]",
+      "code_readable": "Push 3, Push 5, Add, Print as number, End",
+      "input": "",
+      "expected_output": "8",
+      "explanation": "Pushes 3 and 5 to stack, adds them (3+5=8), prints result."
+    },
+    {
+      "id": "OP-WS03",
+      "language": "Whitespace",
+      "difficulty": "medium",
+      "title": "Multiplication Result",
+      "description": "This Whitespace program multiplies two numbers and outputs the result. Predict the output.",
+      "code": "[S][S][S][T][S][S][N][S][S][S][T][T][N][T][S][S][N][T][N][S][T][N][N][N]",
+      "code_readable": "Push 4, Push 3, Multiply, Print as number, End",
+      "input": "",
+      "expected_output": "12",
+      "explanation": "Pushes 4 and 3, multiplies (4*3=12), prints 12."
+    },
+    {
+      "id": "OP-WS04",
+      "language": "Whitespace",
+      "difficulty": "hard",
+      "title": "Character Output",
+      "description": "This Whitespace program pushes ASCII values and prints them as characters. Predict the output.",
+      "code": "[S][S][S][T][S][S][T][S][S][S][N][T][N][S][S][S][S][S][T][T][S][S][T][S][T][N][T][N][S][S][N][N][N]",
+      "code_readable": "Push 72 (H), Print as char, Push 105 (i), Print as char, End",
+      "input": "",
+      "expected_output": "Hi",
+      "explanation": "Pushes ASCII 72 ('H'), prints as char, pushes 105 ('i'), prints as char."
+    },
+    {
+      "id": "OP-UL01",
+      "language": "Unlambda",
+      "difficulty": "easy",
+      "title": "Print Single Character",
+      "description": "This Unlambda program prints a single character. The .x combinator prints character x and returns its argument. Predict the output.",
+      "code": "`.!i",
+      "input": "",
+      "expected_output": "!",
+      "explanation": "Applies .! (print '!') to i (identity), printing '!' and returning i."
+    },
+    {
+      "id": "OP-UL02",
+      "language": "Unlambda",
+      "difficulty": "medium",
+      "title": "Multiple Character Output",
+      "description": "This Unlambda program prints multiple characters using nested applications. Predict the output.",
+      "code": "```.H.i.!i",
+      "input": "",
+      "expected_output": "Hi!",
+      "explanation": "Nested applications print 'H', 'i', '!' in sequence."
+    },
+    {
+      "id": "OP-UL03",
+      "language": "Unlambda",
+      "difficulty": "medium",
+      "title": "K Combinator Usage",
+      "description": "This Unlambda program uses the K combinator (which returns its first argument and ignores the second). Predict the output.",
+      "code": "```k.Y.Ni",
+      "input": "",
+      "expected_output": "Y",
+      "explanation": "K takes .Y and .N, returns .Y (ignoring .N), then applies to i, printing 'Y'."
+    },
+    {
+      "id": "OP-UL04",
+      "language": "Unlambda",
+      "difficulty": "hard",
+      "title": "S Combinator Application",
+      "description": "This Unlambda program demonstrates the S combinator. S x y z = x z (y z). Predict the output.",
+      "code": "````s`k.Ak.Bi",
+      "input": "",
+      "expected_output": "A",
+      "explanation": "S applied: (k .A) i ((k .B) i) = .A (constant), prints 'A'."
+    },
+    {
+      "id": "OP-SPL01",
+      "language": "Shakespeare",
+      "difficulty": "easy",
+      "title": "Simple Numeric Output",
+      "description": "This Shakespeare program sets a character's value using noun phrases and outputs it as a number. The noun 'hero' has value 10. Predict the output.",
+      "code": "The Test.\n\nRomeo, a holder.\nJuliet, a speaker.\n\nAct I: The Act.\nScene I: The Scene.\n\nEnter Romeo and Juliet.\n\nJuliet: You are a hero. Open your heart.\n\nExeunt.",
+      "input": "",
+      "expected_output": "10",
+      "explanation": "Juliet tells Romeo 'You are a hero'. In SPL, 'hero' has value 10. 'Open your heart' outputs the value as a number."
+    },
+    {
+      "id": "OP-SPL02",
+      "language": "Shakespeare",
+      "difficulty": "medium",
+      "title": "Arithmetic Sum",
+      "description": "This Shakespeare program computes the sum of two noun values and outputs the result. In SPL, 'cat' has value 3 and 'dog' has value 4. Predict the output.",
+      "code": "The Sum.\n\nRomeo, a holder.\nJuliet, a speaker.\n\nAct I: Add.\nScene I: Calculate.\n\nEnter Romeo and Juliet.\n\nJuliet: You are the sum of a cat and a dog. Open your heart.\n\nExeunt.",
+      "input": "",
+      "expected_output": "7",
+      "explanation": "'The sum of a cat and a dog' computes cat(3) + dog(4) = 7. 'Open your heart' outputs this as a number."
+    },
+    {
+      "id": "OP-SPL03",
+      "language": "Shakespeare",
+      "difficulty": "medium",
+      "title": "Product Calculation",
+      "description": "This Shakespeare program multiplies two noun values and outputs the result. In SPL, 'sun' has value 5 and 'cat' has value 3. Predict the output.",
+      "code": "The Product.\n\nRomeo, a holder.\nJuliet, a speaker.\n\nAct I: Multiply.\nScene I: Calculate.\n\nEnter Romeo and Juliet.\n\nJuliet: You are the product of a sun and a cat. Open your heart.\n\nExeunt.",
+      "input": "",
+      "expected_output": "15",
+      "explanation": "'The product of a sun and a cat' computes sun(5) * cat(3) = 15. Output as number."
+    },
+    {
+      "id": "OP-SPL04",
+      "language": "Shakespeare",
+      "difficulty": "hard",
+      "title": "Difference Calculation",
+      "description": "This Shakespeare program computes the difference between two noun values. In SPL, 'king' has value 20 and 'soldier' has value 8. Predict the output.",
+      "code": "The Difference.\n\nRomeo, a holder.\nJuliet, a speaker.\n\nAct I: Subtract.\nScene I: Calculate.\n\nEnter Romeo and Juliet.\n\nJuliet: You are the difference between a king and a soldier. Open your heart.\n\nExeunt.",
+      "input": "",
+      "expected_output": "12",
+      "explanation": "'The difference between a king and a soldier' computes king(20) - soldier(8) = 12. Output as number."
+    }
+  ]
+}

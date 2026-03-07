@@ -1,0 +1,51 @@
+[project]
+name = "esolang-bench"
+version = "0.1.0"
+description = "EsoLang-Bench: Evaluating LLMs on esoteric programming language generation."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "LossFunc Research" },
+]
+keywords = ["benchmark", "esoteric-languages", "llm", "evaluation", "brainfuck", "befunge", "whitespace"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+benchmark = ["requests>=2.28"]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+esolang-interpret = "esolang_bench.interpreters:cli_main"
+esolang-run = "esolang_bench.benchmarking.runner_utils:main"
+
+[project.urls]
+Homepage = "https://github.com/lossfunk/esolang-bench"
+Documentation = "https://lossfunk.github.io/esolang-bench"
+Repository = "https://github.com/lossfunk/esolang-bench"
+Issues = "https://github.com/lossfunk/esolang-bench/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["esolang_bench*"]
+
+[tool.setuptools.package-data]
+"esolang_bench.data" = ["*.json"]
+"esolang_bench.docs" = ["*.md"]
+"esolang_bench.icl_examples" = ["*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

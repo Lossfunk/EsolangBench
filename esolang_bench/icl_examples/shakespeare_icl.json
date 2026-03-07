@@ -1,0 +1,23 @@
+{
+  "language": "shakespeare",
+  "icl_examples": [
+    {
+      "id": "ICL1",
+      "title": "Print Letter H",
+      "question": "Print the letter 'H' (ASCII 72) to stdout.",
+      "program": "Romeo, a hero.\nJuliet, a lady.\n\nAct I: Output.\nScene I: Print.\n\nEnter Romeo and Juliet.\n\nRomeo:\nYou are 72.\nSpeak your mind.\n\nExeunt.",
+      "io_examples": [
+        {"input": "", "output": "H"}
+      ]
+    },
+    {
+      "id": "ICL2",
+      "title": "Print Number 5",
+      "question": "Print the number 5 to stdout.",
+      "program": "Romeo, a hero.\nJuliet, a lady.\n\nAct I: Output.\nScene I: Print.\n\nEnter Romeo and Juliet.\n\nRomeo:\nYou are 5.\nOpen your heart.\n\nExeunt.",
+      "io_examples": [
+        {"input": "", "output": "5"}
+      ]
+    }
+  ]
+}

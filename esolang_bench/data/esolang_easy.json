@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "name": "EsoLang Easy Subset",
+    "version": "2.0",
+    "description": "Easy difficulty subset (20 problems) from the EsoLang Benchmark Dataset",
+    "total_problems": 20,
+    "difficulty": "easy",
+    "test_cases_per_problem": 6
+  },
+  "problems": [
+    {
+      "id": "E01",
+      "difficulty": "easy",
+      "title": "Print Hello World",
+      "description": "No input is provided. Write exactly the string 'Hello World!' to stdout with no extra whitespace before or after it.",
+      "input_output_examples": [
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"}
+      ]
+    },
+    {
+      "id": "E02",
+      "difficulty": "easy",
+      "title": "Echo Line",
+      "description": "Read a single line of text (which may be empty) and echo it back exactly as received, preserving every character including spaces and punctuation.",
+      "input_output_examples": [
+        {"input": "Hello", "output": "Hello"},
+        {"input": "abc123", "output": "abc123"},
+        {"input": "Brainfuck is fun", "output": "Brainfuck is fun"},
+        {"input": "X", "output": "X"},
+        {"input": "!@#$%^&*()", "output": "!@#$%^&*()"},
+        {"input": "   spaces   ", "output": "   spaces   "}
+      ]
+    },
+    {
+      "id": "E03",
+      "difficulty": "easy",
+      "title": "Hello Name",
+      "description": "Read one line containing a name. Output 'Hello, NAME!' where NAME is the input text exactly as given (case-sensitive, no trimming).",
+      "input_output_examples": [
+        {"input": "Aman", "output": "Hello, Aman!"},
+        {"input": "Ada", "output": "Hello, Ada!"},
+        {"input": "Lambda", "output": "Hello, Lambda!"},
+        {"input": "X", "output": "Hello, X!"},
+        {"input": "World", "output": "Hello, World!"},
+        {"input": "123", "output": "Hello, 123!"}
+      ]
+    },
+    {
+      "id": "E04",
+      "difficulty": "easy",
+      "title": "Sum Two Integers",
+      "description": "Read two integers a and b separated by whitespace on one line. Output their sum a + b as a plain integer with no extra text.",
+      "input_output_examples": [
+        {"input": "5 7", "output": "12"},
+        {"input": "-3 10", "output": "7"},
+        {"input": "0 0", "output": "0"},
+        {"input": "100 200", "output": "300"},
+        {"input": "-50 -25", "output": "-75"},
+        {"input": "999 1", "output": "1000"}
+      ]
+    },
+    {
+      "id": "E05",
+      "difficulty": "easy",
+      "title": "Multiply Two Integers",
+      "description": "Read two integers a and b separated by whitespace on one line. Output the product a * b as a plain integer.",
+      "input_output_examples": [
+        {"input": "3 4", "output": "12"},
+        {"input": "-2 5", "output": "-10"},
+        {"input": "7 0", "output": "0"},
+        {"input": "11 11", "output": "121"},
+        {"input": "-3 -4", "output": "12"},
+        {"input": "25 4", "output": "100"}
+      ]
+    },
+    {
+      "id": "E06",
+      "difficulty": "easy",
+      "title": "Even Or Odd",
+      "description": "Read a single integer n. If n is divisible by 2, output the word 'even'; otherwise output 'odd'.",
+      "input_output_examples": [
+        {"input": "4", "output": "even"},
+        {"input": "7", "output": "odd"},
+        {"input": "0", "output": "even"},
+        {"input": "-6", "output": "even"},
+        {"input": "1", "output": "odd"},
+        {"input": "1000", "output": "even"}
+      ]
+    },
+    {
+      "id": "E07",
+      "difficulty": "easy",
+      "title": "String Length",
+      "description": "Read an entire line of text (possibly containing spaces). Output the total number of characters in that line exactly as read, counting spaces and punctuation but excluding the trailing newline.",
+      "input_output_examples": [
+        {"input": "abc", "output": "3"},
+        {"input": "hello world", "output": "11"},
+        {"input": "", "output": "0"},
+        {"input": "X", "output": "1"},
+        {"input": "a b c d e", "output": "9"},
+        {"input": "!@#$%", "output": "5"}
+      ]
+    },
+    {
+      "id": "E08",
+      "difficulty": "easy",
+      "title": "Reverse String",
+      "description": "Read a line of text and output the characters in reverse order. The reverse must include every character exactly once with no additional spacing.",
+      "input_output_examples": [
+        {"input": "abcd", "output": "dcba"},
+        {"input": "racecar", "output": "racecar"},
+        {"input": "hello world", "output": "dlrow olleh"},
+        {"input": "a", "output": "a"},
+        {"input": "12345", "output": "54321"},
+        {"input": "ab", "output": "ba"}
+      ]
+    },
+    {
+      "id": "E09",
+      "difficulty": "easy",
+      "title": "Count Vowels",
+      "description": "Read a line of text and count how many characters are vowels from the set a, e, i, o, u in either uppercase or lowercase. Output the numeric count as an integer.",
+      "input_output_examples": [
+        {"input": "hello", "output": "2"},
+        {"input": "Esoteric", "output": "4"},
+        {"input": "xyz", "output": "0"},
+        {"input": "AEIOU", "output": "5"},
+        {"input": "aaa", "output": "3"},
+        {"input": "rhythm", "output": "0"}
+      ]
+    },
+    {
+      "id": "E10",
+      "difficulty": "easy",
+      "title": "Sum From 1 To N",
+      "description": "Read an integer N (which may be zero). Output the value of the arithmetic series 1 + 2 + ... + N. If N is zero, output 0. You may assume N is non-negative.",
+      "input_output_examples": [
+        {"input": "5", "output": "15"},
+        {"input": "1", "output": "1"},
+        {"input": "0", "output": "0"},
+        {"input": "10", "output": "55"},
+        {"input": "100", "output": "5050"},
+        {"input": "3", "output": "6"}
+      ]
+    },
+    {
+      "id": "E11",
+      "difficulty": "easy",
+      "title": "Sum Of Digits",
+      "description": "Read a possibly negative integer n. Take its absolute value, sum all decimal digits, and output the resulting integer.",
+      "input_output_examples": [
+        {"input": "12345", "output": "15"},
+        {"input": "-409", "output": "13"},
+        {"input": "0", "output": "0"},
+        {"input": "999", "output": "27"},
+        {"input": "-123", "output": "6"},
+        {"input": "11111", "output": "5"}
+      ]
+    },
+    {
+      "id": "E12",
+      "difficulty": "easy",
+      "title": "Minimum Of Two",
+      "description": "Read two integers a and b separated by whitespace and output the smaller value. If a and b are equal, output that shared value once.",
+      "input_output_examples": [
+        {"input": "5 9", "output": "5"},
+        {"input": "7 2", "output": "2"},
+        {"input": "3 3", "output": "3"},
+        {"input": "-5 -10", "output": "-10"},
+        {"input": "0 1", "output": "0"},
+        {"input": "100 99", "output": "99"}
+      ]
+    },
+    {
+      "id": "E13",
+      "difficulty": "easy",
+      "title": "Maximum Of Three",
+      "description": "Read three integers a, b, and c separated by spaces. Output the largest of the three values as an integer.",
+      "input_output_examples": [
+        {"input": "1 2 3", "output": "3"},
+        {"input": "10 -5 7", "output": "10"},
+        {"input": "-3 -1 -9", "output": "-1"},
+        {"input": "5 5 5", "output": "5"},
+        {"input": "100 50 75", "output": "100"},
+        {"input": "0 0 1", "output": "1"}
+      ]
+    },
+    {
+      "id": "E14",
+      "difficulty": "easy",
+      "title": "Repeat String N Times",
+      "description": "Read an integer N on the first line and a string S on the second line. Output S repeated exactly N times with no separator or newline between repetitions.",
+      "input_output_examples": [
+        {"input": "3\nab", "output": "ababab"},
+        {"input": "2\nxyz", "output": "xyzxyz"},
+        {"input": "0\nhello", "output": ""},
+        {"input": "5\na", "output": "aaaaa"},
+        {"input": "1\ntest", "output": "test"},
+        {"input": "4\n12", "output": "12121212"}
+      ]
+    },
+    {
+      "id": "E15",
+      "difficulty": "easy",
+      "title": "Concatenate Two Lines",
+      "description": "Read two entire lines S1 and S2. Output S1, followed by a single space character, followed by S2. Preserve both lines exactly as read.",
+      "input_output_examples": [
+        {"input": "Hello\nWorld", "output": "Hello World"},
+        {"input": "Foo\nBar", "output": "Foo Bar"},
+        {"input": "esoteric\nlanguage", "output": "esoteric language"},
+        {"input": "a\nb", "output": "a b"},
+        {"input": "123\n456", "output": "123 456"},
+        {"input": "first\nsecond", "output": "first second"}
+      ]
+    },
+    {
+      "id": "E16",
+      "difficulty": "easy",
+      "title": "First And Last Character",
+      "description": "Read a non-empty string S on one line. Output the first character of S, a single space, then the last character of S.",
+      "input_output_examples": [
+        {"input": "abcde", "output": "a e"},
+        {"input": "X", "output": "X X"},
+        {"input": "hello", "output": "h o"},
+        {"input": "ab", "output": "a b"},
+        {"input": "123456", "output": "1 6"},
+        {"input": "test", "output": "t t"}
+      ]
+    },
+    {
+      "id": "E17",
+      "difficulty": "easy",
+      "title": "Uppercase String",
+      "description": "Read a line of text and output the same line but with every lowercase letter converted to uppercase. Leave uppercase letters, digits, punctuation, and spaces unchanged.",
+      "input_output_examples": [
+        {"input": "Hello", "output": "HELLO"},
+        {"input": "brainfuck", "output": "BRAINFUCK"},
+        {"input": "123abc!", "output": "123ABC!"},
+        {"input": "ALREADY", "output": "ALREADY"},
+        {"input": "MixEd CaSe", "output": "MIXED CASE"},
+        {"input": "a", "output": "A"}
+      ]
+    },
+    {
+      "id": "E18",
+      "difficulty": "easy",
+      "title": "Count Spaces",
+      "description": "Read a line of text and count how many literal space characters (' ') it contains. Output that count as an integer.",
+      "input_output_examples": [
+        {"input": "hello world", "output": "1"},
+        {"input": "no_spaces_here", "output": "0"},
+        {"input": "a b c", "output": "2"},
+        {"input": "   ", "output": "3"},
+        {"input": "one two three four", "output": "3"},
+        {"input": "x", "output": "0"}
+      ]
+    },
+    {
+      "id": "E19",
+      "difficulty": "easy",
+      "title": "Integer Average Of Two",
+      "description": "Read two integers a and b separated by whitespace. Compute the integer average (a + b) / 2 using truncating division toward zero and output the result.",
+      "input_output_examples": [
+        {"input": "4 6", "output": "5"},
+        {"input": "5 7", "output": "6"},
+        {"input": "-4 0", "output": "-2"},
+        {"input": "10 10", "output": "10"},
+        {"input": "1 2", "output": "1"},
+        {"input": "100 200", "output": "150"}
+      ]
+    },
+    {
+      "id": "E20",
+      "difficulty": "easy",
+      "title": "Compare Two Integers",
+      "description": "Read two integers a and b separated by whitespace. Output 'less' if a < b, 'greater' if a > b, or 'equal' if they are the same value.",
+      "input_output_examples": [
+        {"input": "3 10", "output": "less"},
+        {"input": "10 3", "output": "greater"},
+        {"input": "7 7", "output": "equal"},
+        {"input": "-5 -5", "output": "equal"},
+        {"input": "0 1", "output": "less"},
+        {"input": "100 50", "output": "greater"}
+      ]
+    }
+  ]
+}

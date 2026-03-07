@@ -1,0 +1,23 @@
+{
+  "language": "unlambda",
+  "icl_examples": [
+    {
+      "id": "ICL1",
+      "title": "Print Hi",
+      "question": "Print the string 'Hi' to stdout.",
+      "program": "`.i`.Hi",
+      "io_examples": [
+        {"input": "", "output": "Hi"}
+      ]
+    },
+    {
+      "id": "ICL2",
+      "title": "Print AB",
+      "question": "Print the string 'AB' to stdout.",
+      "program": "`.B`.Ai",
+      "io_examples": [
+        {"input": "", "output": "AB"}
+      ]
+    }
+  ]
+}

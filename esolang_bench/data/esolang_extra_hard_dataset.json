@@ -1,0 +1,659 @@
+{
+  "metadata": {
+    "name": "EsoLang Extra Hard Dataset",
+    "version": "2.0",
+    "description": "Extra Hard difficulty subset (20 problems) from the EsoLang Benchmark Dataset",
+    "total_problems": 20,
+    "difficulty": "extra_hard",
+    "test_cases_per_problem": 6,
+    "supported_languages": [
+      "Brainfuck",
+      "Befunge-98",
+      "Whitespace",
+      "Unlambda",
+      "Shakespeare"
+    ]
+  },
+  "problems": [
+    {
+      "id": "X01",
+      "difficulty": "extra_hard",
+      "title": "Prime Factorization",
+      "description": "Read a positive integer N > 1. Output its prime factorization as space-separated primes in ascending order with repetition. For example, 12 = 2*2*3, so output '2 2 3'.",
+      "input_output_examples": [
+        {
+          "input": "12",
+          "output": "2 2 3"
+        },
+        {
+          "input": "7",
+          "output": "7"
+        },
+        {
+          "input": "100",
+          "output": "2 2 5 5"
+        },
+        {
+          "input": "2",
+          "output": "2"
+        },
+        {
+          "input": "60",
+          "output": "2 2 3 5"
+        },
+        {
+          "input": "81",
+          "output": "3 3 3 3"
+        }
+      ]
+    },
+    {
+      "id": "X02",
+      "difficulty": "extra_hard",
+      "title": "Longest Increasing Subsequence Length",
+      "description": "Read an integer N followed by N integers. Find the length of the longest strictly increasing subsequence (not necessarily contiguous) and output that length.",
+      "input_output_examples": [
+        {
+          "input": "6\n10 9 2 5 3 7",
+          "output": "3"
+        },
+        {
+          "input": "5\n1 2 3 4 5",
+          "output": "5"
+        },
+        {
+          "input": "5\n5 4 3 2 1",
+          "output": "1"
+        },
+        {
+          "input": "8\n0 8 4 12 2 10 6 14",
+          "output": "4"
+        },
+        {
+          "input": "3\n1 1 1",
+          "output": "1"
+        },
+        {
+          "input": "7\n3 1 4 1 5 9 2",
+          "output": "4"
+        }
+      ]
+    },
+    {
+      "id": "X03",
+      "difficulty": "extra_hard",
+      "title": "Matrix Multiplication Result Element",
+      "description": "Read dimensions M, N, P, then an MxN matrix A (M lines, N integers each), then an NxP matrix B (N lines, P integers each), then row index i and column index j (0-based). Output the element at position (i,j) in the product matrix A*B.",
+      "input_output_examples": [
+        {
+          "input": "2 2 2\n1 2\n3 4\n5 6\n7 8\n0 0",
+          "output": "19"
+        },
+        {
+          "input": "2 2 2\n1 2\n3 4\n5 6\n7 8\n1 1",
+          "output": "50"
+        },
+        {
+          "input": "2 3 2\n1 2 3\n4 5 6\n1 0\n0 1\n0 0\n0 0",
+          "output": "1"
+        },
+        {
+          "input": "1 1 1\n5\n3\n0 0",
+          "output": "15"
+        },
+        {
+          "input": "2 2 2\n1 0\n0 1\n2 3\n4 5\n0 1",
+          "output": "3"
+        },
+        {
+          "input": "2 2 2\n2 0\n0 2\n3 0\n0 3\n1 1",
+          "output": "6"
+        }
+      ]
+    },
+    {
+      "id": "X04",
+      "difficulty": "extra_hard",
+      "title": "Evaluate Postfix Expression",
+      "description": "Read a postfix (Reverse Polish Notation) expression with single-digit operands and operators +, -, *, / separated by spaces. Evaluate using integer arithmetic (truncate toward zero for division) and output the result.",
+      "input_output_examples": [
+        {
+          "input": "3 4 +",
+          "output": "7"
+        },
+        {
+          "input": "5 1 2 + 4 * + 3 -",
+          "output": "14"
+        },
+        {
+          "input": "2 3 * 4 +",
+          "output": "10"
+        },
+        {
+          "input": "9 3 /",
+          "output": "3"
+        },
+        {
+          "input": "5 3 -",
+          "output": "2"
+        },
+        {
+          "input": "2 3 4 * +",
+          "output": "14"
+        }
+      ]
+    },
+    {
+      "id": "X05",
+      "difficulty": "extra_hard",
+      "title": "Merge Two Sorted Arrays",
+      "description": "Read two lines, each containing space-separated integers in sorted ascending order. Merge them into a single sorted array and output the result as space-separated integers.",
+      "input_output_examples": [
+        {
+          "input": "1 3 5\n2 4 6",
+          "output": "1 2 3 4 5 6"
+        },
+        {
+          "input": "1 2 3\n4 5 6",
+          "output": "1 2 3 4 5 6"
+        },
+        {
+          "input": "1\n2",
+          "output": "1 2"
+        },
+        {
+          "input": "1 1 1\n1 1 1",
+          "output": "1 1 1 1 1 1"
+        },
+        {
+          "input": "10 20 30\n5 15 25",
+          "output": "5 10 15 20 25 30"
+        },
+        {
+          "input": "-5 0 5\n-3 3",
+          "output": "-5 -3 0 3 5"
+        }
+      ]
+    },
+    {
+      "id": "X06",
+      "difficulty": "extra_hard",
+      "title": "Compute Power Modulo",
+      "description": "Read three integers: base B, exponent E, and modulus M. Compute B^E mod M using efficient modular exponentiation and output the result. Assume E >= 0 and M > 0.",
+      "input_output_examples": [
+        {
+          "input": "2 10 1000",
+          "output": "24"
+        },
+        {
+          "input": "3 5 7",
+          "output": "5"
+        },
+        {
+          "input": "2 0 5",
+          "output": "1"
+        },
+        {
+          "input": "10 100 13",
+          "output": "3"
+        },
+        {
+          "input": "7 7 100",
+          "output": "43"
+        },
+        {
+          "input": "5 3 13",
+          "output": "8"
+        }
+      ]
+    },
+    {
+      "id": "X07",
+      "difficulty": "extra_hard",
+      "title": "Longest Palindromic Substring Length",
+      "description": "Read a string S. Find the longest contiguous substring that is a palindrome and output its length.",
+      "input_output_examples": [
+        {
+          "input": "babad",
+          "output": "3"
+        },
+        {
+          "input": "cbbd",
+          "output": "2"
+        },
+        {
+          "input": "a",
+          "output": "1"
+        },
+        {
+          "input": "racecar",
+          "output": "7"
+        },
+        {
+          "input": "abcdefg",
+          "output": "1"
+        },
+        {
+          "input": "abaaba",
+          "output": "6"
+        }
+      ]
+    },
+    {
+      "id": "X08",
+      "difficulty": "extra_hard",
+      "title": "Count Set Bits In Range",
+      "description": "Read two integers L and R (0 <= L <= R). Count the total number of 1-bits in the binary representations of all integers from L to R inclusive, and output that count.",
+      "input_output_examples": [
+        {
+          "input": "0 3",
+          "output": "4"
+        },
+        {
+          "input": "1 1",
+          "output": "1"
+        },
+        {
+          "input": "5 7",
+          "output": "7"
+        },
+        {
+          "input": "0 15",
+          "output": "32"
+        },
+        {
+          "input": "10 10",
+          "output": "2"
+        },
+        {
+          "input": "1 10",
+          "output": "17"
+        }
+      ]
+    },
+    {
+      "id": "X09",
+      "difficulty": "extra_hard",
+      "title": "Bracket Depth Maximum",
+      "description": "Read a string consisting only of '(' and ')' characters. The string may or may not be balanced. Output the maximum nesting depth achieved at any point while reading left to right (0 if empty or all closing brackets come first).",
+      "input_output_examples": [
+        {
+          "input": "((()))",
+          "output": "3"
+        },
+        {
+          "input": "()()()",
+          "output": "1"
+        },
+        {
+          "input": "((()()))",
+          "output": "3"
+        },
+        {
+          "input": "()",
+          "output": "1"
+        },
+        {
+          "input": ")))((",
+          "output": "2"
+        },
+        {
+          "input": "((((",
+          "output": "4"
+        }
+      ]
+    },
+    {
+      "id": "X10",
+      "difficulty": "extra_hard",
+      "title": "String Rotation Check",
+      "description": "Read two strings S1 and S2 of the same length. Determine if S2 is a rotation of S1 (e.g., 'abcde' rotated is 'cdeab'). Output 'yes' if S2 is a rotation of S1, otherwise 'no'.",
+      "input_output_examples": [
+        {
+          "input": "abcde\ncdeab",
+          "output": "yes"
+        },
+        {
+          "input": "abc\ncab",
+          "output": "yes"
+        },
+        {
+          "input": "abc\nbca",
+          "output": "yes"
+        },
+        {
+          "input": "abc\nabc",
+          "output": "yes"
+        },
+        {
+          "input": "abc\nacb",
+          "output": "no"
+        },
+        {
+          "input": "aaab\nabaa",
+          "output": "yes"
+        }
+      ]
+    },
+    {
+      "id": "X11",
+      "difficulty": "extra_hard",
+      "title": "Count Inversions",
+      "description": "Read an integer N followed by N integers. Count the number of inversions: pairs (i,j) where i < j but arr[i] > arr[j]. Output that count.",
+      "input_output_examples": [
+        {
+          "input": "5\n2 4 1 3 5",
+          "output": "3"
+        },
+        {
+          "input": "5\n1 2 3 4 5",
+          "output": "0"
+        },
+        {
+          "input": "5\n5 4 3 2 1",
+          "output": "10"
+        },
+        {
+          "input": "3\n3 2 1",
+          "output": "3"
+        },
+        {
+          "input": "4\n1 3 2 4",
+          "output": "1"
+        },
+        {
+          "input": "6\n6 5 4 3 2 1",
+          "output": "15"
+        }
+      ]
+    },
+    {
+      "id": "X12",
+      "difficulty": "extra_hard",
+      "title": "Least Common Multiple",
+      "description": "Read two positive integers A and B. Compute and output their least common multiple (LCM).",
+      "input_output_examples": [
+        {
+          "input": "4 6",
+          "output": "12"
+        },
+        {
+          "input": "3 5",
+          "output": "15"
+        },
+        {
+          "input": "12 18",
+          "output": "36"
+        },
+        {
+          "input": "7 7",
+          "output": "7"
+        },
+        {
+          "input": "1 100",
+          "output": "100"
+        },
+        {
+          "input": "15 20",
+          "output": "60"
+        }
+      ]
+    },
+    {
+      "id": "X13",
+      "difficulty": "extra_hard",
+      "title": "Valid Parentheses Types",
+      "description": "Read a string containing only '(', ')', '[', ']', '{', '}'. Check if all brackets are balanced and properly nested. Output 'yes' if valid, 'no' otherwise.",
+      "input_output_examples": [
+        {
+          "input": "()[]{}",
+          "output": "yes"
+        },
+        {
+          "input": "([{}])",
+          "output": "yes"
+        },
+        {
+          "input": "([)]",
+          "output": "no"
+        },
+        {
+          "input": "{[]}",
+          "output": "yes"
+        },
+        {
+          "input": "((()))",
+          "output": "yes"
+        },
+        {
+          "input": "[(])",
+          "output": "no"
+        }
+      ]
+    },
+    {
+      "id": "X14",
+      "difficulty": "extra_hard",
+      "title": "Next Greater Element",
+      "description": "Read an integer N followed by N integers. For each element, find the first element to its right that is greater than it. Output N integers where each is the next greater element, or -1 if none exists.",
+      "input_output_examples": [
+        {
+          "input": "4\n4 5 2 10",
+          "output": "5 10 10 -1"
+        },
+        {
+          "input": "4\n3 2 1 0",
+          "output": "-1 -1 -1 -1"
+        },
+        {
+          "input": "5\n1 2 3 4 5",
+          "output": "2 3 4 5 -1"
+        },
+        {
+          "input": "3\n1 3 2",
+          "output": "3 -1 -1"
+        },
+        {
+          "input": "4\n2 1 4 3",
+          "output": "4 4 -1 -1"
+        },
+        {
+          "input": "5\n5 4 3 2 1",
+          "output": "-1 -1 -1 -1 -1"
+        }
+      ]
+    },
+    {
+      "id": "X15",
+      "difficulty": "extra_hard",
+      "title": "Spiral Matrix Traversal",
+      "description": "Read integers R and C for rows and columns, then R lines of C integers each representing a matrix. Output all elements in spiral order (clockwise from top-left) as space-separated integers.",
+      "input_output_examples": [
+        {
+          "input": "3 3\n1 2 3\n4 5 6\n7 8 9",
+          "output": "1 2 3 6 9 8 7 4 5"
+        },
+        {
+          "input": "2 2\n1 2\n3 4",
+          "output": "1 2 4 3"
+        },
+        {
+          "input": "1 4\n1 2 3 4",
+          "output": "1 2 3 4"
+        },
+        {
+          "input": "4 1\n1\n2\n3\n4",
+          "output": "1 2 3 4"
+        },
+        {
+          "input": "2 3\n1 2 3\n4 5 6",
+          "output": "1 2 3 6 5 4"
+        },
+        {
+          "input": "3 2\n1 2\n3 4\n5 6",
+          "output": "1 2 4 6 5 3"
+        }
+      ]
+    },
+    {
+      "id": "X16",
+      "difficulty": "extra_hard",
+      "title": "Hamming Distance",
+      "description": "Read two non-negative integers A and B. Compute the Hamming distance between their binary representations (number of bit positions where they differ) and output that count.",
+      "input_output_examples": [
+        {
+          "input": "1 4",
+          "output": "2"
+        },
+        {
+          "input": "3 1",
+          "output": "1"
+        },
+        {
+          "input": "0 0",
+          "output": "0"
+        },
+        {
+          "input": "15 0",
+          "output": "4"
+        },
+        {
+          "input": "255 0",
+          "output": "8"
+        },
+        {
+          "input": "7 10",
+          "output": "3"
+        }
+      ]
+    },
+    {
+      "id": "X17",
+      "difficulty": "extra_hard",
+      "title": "Roman To Integer",
+      "description": "Read a valid Roman numeral string (I, V, X, L, C, D, M). Convert it to an integer and output the result. Input will be valid and in range 1-3999.",
+      "input_output_examples": [
+        {
+          "input": "III",
+          "output": "3"
+        },
+        {
+          "input": "IV",
+          "output": "4"
+        },
+        {
+          "input": "IX",
+          "output": "9"
+        },
+        {
+          "input": "LVIII",
+          "output": "58"
+        },
+        {
+          "input": "MCMXCIV",
+          "output": "1994"
+        },
+        {
+          "input": "MMXXV",
+          "output": "2025"
+        }
+      ]
+    },
+    {
+      "id": "X18",
+      "difficulty": "extra_hard",
+      "title": "Integer To Roman",
+      "description": "Read an integer N in the range 1-3999. Convert it to a Roman numeral string using standard notation (I, V, X, L, C, D, M with subtractive pairs) and output the result.",
+      "input_output_examples": [
+        {
+          "input": "3",
+          "output": "III"
+        },
+        {
+          "input": "4",
+          "output": "IV"
+        },
+        {
+          "input": "9",
+          "output": "IX"
+        },
+        {
+          "input": "58",
+          "output": "LVIII"
+        },
+        {
+          "input": "1994",
+          "output": "MCMXCIV"
+        },
+        {
+          "input": "2025",
+          "output": "MMXXV"
+        }
+      ]
+    },
+    {
+      "id": "X19",
+      "difficulty": "extra_hard",
+      "title": "Permutation Check",
+      "description": "Read an integer N followed by N integers. Determine if the sequence is a permutation of 1 to N (each number 1 to N appears exactly once). Output 'yes' if it is a valid permutation, 'no' otherwise.",
+      "input_output_examples": [
+        {
+          "input": "4\n4 1 3 2",
+          "output": "yes"
+        },
+        {
+          "input": "3\n1 2 2",
+          "output": "no"
+        },
+        {
+          "input": "5\n1 2 3 4 5",
+          "output": "yes"
+        },
+        {
+          "input": "3\n1 3 2",
+          "output": "yes"
+        },
+        {
+          "input": "4\n1 2 3 5",
+          "output": "no"
+        },
+        {
+          "input": "1\n1",
+          "output": "yes"
+        }
+      ]
+    },
+    {
+      "id": "X20",
+      "difficulty": "extra_hard",
+      "title": "Josephus Problem",
+      "description": "Read integers N and K. N people stand in a circle numbered 1 to N. Starting from person 1, count K people clockwise and eliminate that person. Repeat until one remains. Output the survivor's original number.",
+      "input_output_examples": [
+        {
+          "input": "5 2",
+          "output": "3"
+        },
+        {
+          "input": "7 3",
+          "output": "4"
+        },
+        {
+          "input": "1 1",
+          "output": "1"
+        },
+        {
+          "input": "6 1",
+          "output": "6"
+        },
+        {
+          "input": "10 2",
+          "output": "5"
+        },
+        {
+          "input": "4 2",
+          "output": "1"
+        }
+      ]
+    }
+  ]
+}

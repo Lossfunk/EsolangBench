@@ -1,0 +1,1138 @@
+{
+  "metadata": {
+    "name": "EsoLang Benchmark Dataset",
+    "version": "2.0",
+    "description": "A comprehensive benchmark dataset for evaluating LLM code generation capabilities in esoteric programming languages",
+    "total_problems": 80,
+    "difficulty_distribution": {
+      "easy": 20,
+      "medium": 20,
+      "hard": 20,
+      "extra_hard": 20
+    },
+    "test_cases_per_problem": 6,
+    "supported_languages": ["Brainfuck", "Befunge-98", "Whitespace", "Unlambda", "Shakespeare"]
+  },
+  "problems": [
+    {
+      "id": "E01",
+      "difficulty": "easy",
+      "title": "Print Hello World",
+      "description": "No input is provided. Write exactly the string 'Hello World!' to stdout with no extra whitespace before or after it.",
+      "input_output_examples": [
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"},
+        {"input": "", "output": "Hello World!"}
+      ]
+    },
+    {
+      "id": "E02",
+      "difficulty": "easy",
+      "title": "Echo Line",
+      "description": "Read a single line of text (which may be empty) and echo it back exactly as received, preserving every character including spaces and punctuation.",
+      "input_output_examples": [
+        {"input": "Hello", "output": "Hello"},
+        {"input": "abc123", "output": "abc123"},
+        {"input": "Brainfuck is fun", "output": "Brainfuck is fun"},
+        {"input": "X", "output": "X"},
+        {"input": "!@#$%^&*()", "output": "!@#$%^&*()"},
+        {"input": "   spaces   ", "output": "   spaces   "}
+      ]
+    },
+    {
+      "id": "E03",
+      "difficulty": "easy",
+      "title": "Hello Name",
+      "description": "Read one line containing a name. Output 'Hello, NAME!' where NAME is the input text exactly as given (case-sensitive, no trimming).",
+      "input_output_examples": [
+        {"input": "Aman", "output": "Hello, Aman!"},
+        {"input": "Ada", "output": "Hello, Ada!"},
+        {"input": "Lambda", "output": "Hello, Lambda!"},
+        {"input": "X", "output": "Hello, X!"},
+        {"input": "World", "output": "Hello, World!"},
+        {"input": "123", "output": "Hello, 123!"}
+      ]
+    },
+    {
+      "id": "E04",
+      "difficulty": "easy",
+      "title": "Sum Two Integers",
+      "description": "Read two integers a and b separated by whitespace on one line. Output their sum a + b as a plain integer with no extra text.",
+      "input_output_examples": [
+        {"input": "5 7", "output": "12"},
+        {"input": "-3 10", "output": "7"},
+        {"input": "0 0", "output": "0"},
+        {"input": "100 200", "output": "300"},
+        {"input": "-50 -25", "output": "-75"},
+        {"input": "999 1", "output": "1000"}
+      ]
+    },
+    {
+      "id": "E05",
+      "difficulty": "easy",
+      "title": "Multiply Two Integers",
+      "description": "Read two integers a and b separated by whitespace on one line. Output the product a * b as a plain integer.",
+      "input_output_examples": [
+        {"input": "3 4", "output": "12"},
+        {"input": "-2 5", "output": "-10"},
+        {"input": "7 0", "output": "0"},
+        {"input": "11 11", "output": "121"},
+        {"input": "-3 -4", "output": "12"},
+        {"input": "25 4", "output": "100"}
+      ]
+    },
+    {
+      "id": "E06",
+      "difficulty": "easy",
+      "title": "Even Or Odd",
+      "description": "Read a single integer n. If n is divisible by 2, output the word 'even'; otherwise output 'odd'.",
+      "input_output_examples": [
+        {"input": "4", "output": "even"},
+        {"input": "7", "output": "odd"},
+        {"input": "0", "output": "even"},
+        {"input": "-6", "output": "even"},
+        {"input": "1", "output": "odd"},
+        {"input": "1000", "output": "even"}
+      ]
+    },
+    {
+      "id": "E07",
+      "difficulty": "easy",
+      "title": "String Length",
+      "description": "Read an entire line of text (possibly containing spaces). Output the total number of characters in that line exactly as read, counting spaces and punctuation but excluding the trailing newline.",
+      "input_output_examples": [
+        {"input": "abc", "output": "3"},
+        {"input": "hello world", "output": "11"},
+        {"input": "", "output": "0"},
+        {"input": "X", "output": "1"},
+        {"input": "a b c d e", "output": "9"},
+        {"input": "!@#$%", "output": "5"}
+      ]
+    },
+    {
+      "id": "E08",
+      "difficulty": "easy",
+      "title": "Reverse String",
+      "description": "Read a line of text and output the characters in reverse order. The reverse must include every character exactly once with no additional spacing.",
+      "input_output_examples": [
+        {"input": "abcd", "output": "dcba"},
+        {"input": "racecar", "output": "racecar"},
+        {"input": "hello world", "output": "dlrow olleh"},
+        {"input": "a", "output": "a"},
+        {"input": "12345", "output": "54321"},
+        {"input": "ab", "output": "ba"}
+      ]
+    },
+    {
+      "id": "E09",
+      "difficulty": "easy",
+      "title": "Count Vowels",
+      "description": "Read a line of text and count how many characters are vowels from the set a, e, i, o, u in either uppercase or lowercase. Output the numeric count as an integer.",
+      "input_output_examples": [
+        {"input": "hello", "output": "2"},
+        {"input": "Esoteric", "output": "4"},
+        {"input": "xyz", "output": "0"},
+        {"input": "AEIOU", "output": "5"},
+        {"input": "aaa", "output": "3"},
+        {"input": "rhythm", "output": "0"}
+      ]
+    },
+    {
+      "id": "E10",
+      "difficulty": "easy",
+      "title": "Sum From 1 To N",
+      "description": "Read an integer N (which may be zero). Output the value of the arithmetic series 1 + 2 + ... + N. If N is zero, output 0. You may assume N is non-negative.",
+      "input_output_examples": [
+        {"input": "5", "output": "15"},
+        {"input": "1", "output": "1"},
+        {"input": "0", "output": "0"},
+        {"input": "10", "output": "55"},
+        {"input": "100", "output": "5050"},
+        {"input": "3", "output": "6"}
+      ]
+    },
+    {
+      "id": "E11",
+      "difficulty": "easy",
+      "title": "Sum Of Digits",
+      "description": "Read a possibly negative integer n. Take its absolute value, sum all decimal digits, and output the resulting integer.",
+      "input_output_examples": [
+        {"input": "12345", "output": "15"},
+        {"input": "-409", "output": "13"},
+        {"input": "0", "output": "0"},
+        {"input": "999", "output": "27"},
+        {"input": "-123", "output": "6"},
+        {"input": "11111", "output": "5"}
+      ]
+    },
+    {
+      "id": "E12",
+      "difficulty": "easy",
+      "title": "Minimum Of Two",
+      "description": "Read two integers a and b separated by whitespace and output the smaller value. If a and b are equal, output that shared value once.",
+      "input_output_examples": [
+        {"input": "5 9", "output": "5"},
+        {"input": "7 2", "output": "2"},
+        {"input": "3 3", "output": "3"},
+        {"input": "-5 -10", "output": "-10"},
+        {"input": "0 1", "output": "0"},
+        {"input": "100 99", "output": "99"}
+      ]
+    },
+    {
+      "id": "E13",
+      "difficulty": "easy",
+      "title": "Maximum Of Three",
+      "description": "Read three integers a, b, and c separated by spaces. Output the largest of the three values as an integer.",
+      "input_output_examples": [
+        {"input": "1 2 3", "output": "3"},
+        {"input": "10 -5 7", "output": "10"},
+        {"input": "-3 -1 -9", "output": "-1"},
+        {"input": "5 5 5", "output": "5"},
+        {"input": "100 50 75", "output": "100"},
+        {"input": "0 0 1", "output": "1"}
+      ]
+    },
+    {
+      "id": "E14",
+      "difficulty": "easy",
+      "title": "Repeat String N Times",
+      "description": "Read an integer N on the first line and a string S on the second line. Output S repeated exactly N times with no separator or newline between repetitions.",
+      "input_output_examples": [
+        {"input": "3\nab", "output": "ababab"},
+        {"input": "2\nxyz", "output": "xyzxyz"},
+        {"input": "0\nhello", "output": ""},
+        {"input": "5\na", "output": "aaaaa"},
+        {"input": "1\ntest", "output": "test"},
+        {"input": "4\n12", "output": "12121212"}
+      ]
+    },
+    {
+      "id": "E15",
+      "difficulty": "easy",
+      "title": "Concatenate Two Lines",
+      "description": "Read two entire lines S1 and S2. Output S1, followed by a single space character, followed by S2. Preserve both lines exactly as read.",
+      "input_output_examples": [
+        {"input": "Hello\nWorld", "output": "Hello World"},
+        {"input": "Foo\nBar", "output": "Foo Bar"},
+        {"input": "esoteric\nlanguage", "output": "esoteric language"},
+        {"input": "a\nb", "output": "a b"},
+        {"input": "123\n456", "output": "123 456"},
+        {"input": "first\nsecond", "output": "first second"}
+      ]
+    },
+    {
+      "id": "E16",
+      "difficulty": "easy",
+      "title": "First And Last Character",
+      "description": "Read a non-empty string S on one line. Output the first character of S, a single space, then the last character of S.",
+      "input_output_examples": [
+        {"input": "abcde", "output": "a e"},
+        {"input": "X", "output": "X X"},
+        {"input": "hello", "output": "h o"},
+        {"input": "ab", "output": "a b"},
+        {"input": "123456", "output": "1 6"},
+        {"input": "test", "output": "t t"}
+      ]
+    },
+    {
+      "id": "E17",
+      "difficulty": "easy",
+      "title": "Uppercase String",
+      "description": "Read a line of text and output the same line but with every lowercase letter converted to uppercase. Leave uppercase letters, digits, punctuation, and spaces unchanged.",
+      "input_output_examples": [
+        {"input": "Hello", "output": "HELLO"},
+        {"input": "brainfuck", "output": "BRAINFUCK"},
+        {"input": "123abc!", "output": "123ABC!"},
+        {"input": "ALREADY", "output": "ALREADY"},
+        {"input": "MixEd CaSe", "output": "MIXED CASE"},
+        {"input": "a", "output": "A"}
+      ]
+    },
+    {
+      "id": "E18",
+      "difficulty": "easy",
+      "title": "Count Spaces",
+      "description": "Read a line of text and count how many literal space characters (' ') it contains. Output that count as an integer.",
+      "input_output_examples": [
+        {"input": "hello world", "output": "1"},
+        {"input": "no_spaces_here", "output": "0"},
+        {"input": "a b c", "output": "2"},
+        {"input": "   ", "output": "3"},
+        {"input": "one two three four", "output": "3"},
+        {"input": "x", "output": "0"}
+      ]
+    },
+    {
+      "id": "E19",
+      "difficulty": "easy",
+      "title": "Integer Average Of Two",
+      "description": "Read two integers a and b separated by whitespace. Compute the integer average (a + b) / 2 using truncating division toward zero and output the result.",
+      "input_output_examples": [
+        {"input": "4 6", "output": "5"},
+        {"input": "5 7", "output": "6"},
+        {"input": "-4 0", "output": "-2"},
+        {"input": "10 10", "output": "10"},
+        {"input": "1 2", "output": "1"},
+        {"input": "100 200", "output": "150"}
+      ]
+    },
+    {
+      "id": "E20",
+      "difficulty": "easy",
+      "title": "Compare Two Integers",
+      "description": "Read two integers a and b separated by whitespace. Output 'less' if a < b, 'greater' if a > b, or 'equal' if they are the same value.",
+      "input_output_examples": [
+        {"input": "3 10", "output": "less"},
+        {"input": "10 3", "output": "greater"},
+        {"input": "7 7", "output": "equal"},
+        {"input": "-5 -5", "output": "equal"},
+        {"input": "0 1", "output": "less"},
+        {"input": "100 50", "output": "greater"}
+      ]
+    },
+    {
+      "id": "M01",
+      "difficulty": "medium",
+      "title": "Palindrome Check",
+      "description": "Read a string S and determine whether it reads the same forwards and backwards, comparing characters exactly (case-sensitive and including punctuation). Output 'yes' for palindromes and 'no' otherwise.",
+      "input_output_examples": [
+        {"input": "racecar", "output": "yes"},
+        {"input": "abba", "output": "yes"},
+        {"input": "hello", "output": "no"},
+        {"input": "a", "output": "yes"},
+        {"input": "ab", "output": "no"},
+        {"input": "12321", "output": "yes"}
+      ]
+    },
+    {
+      "id": "M02",
+      "difficulty": "medium",
+      "title": "Word Count",
+      "description": "Read a line consisting of words separated by single spaces. Count how many words appear (non-empty sequences between spaces) and output that integer.",
+      "input_output_examples": [
+        {"input": "hello world", "output": "2"},
+        {"input": "one two three", "output": "3"},
+        {"input": "single", "output": "1"},
+        {"input": "a b c d e", "output": "5"},
+        {"input": "esoteric programming languages", "output": "3"},
+        {"input": "x", "output": "1"}
+      ]
+    },
+    {
+      "id": "M03",
+      "difficulty": "medium",
+      "title": "Run Length Encoding",
+      "description": "Read a string S and produce its run-length encoding: for each maximal block of identical characters, output the character followed immediately by the length of the block as a decimal integer. Concatenate all blocks and output the resulting string.",
+      "input_output_examples": [
+        {"input": "aaabb", "output": "a3b2"},
+        {"input": "abcd", "output": "a1b1c1d1"},
+        {"input": "zzzz", "output": "z4"},
+        {"input": "a", "output": "a1"},
+        {"input": "aabbcc", "output": "a2b2c2"},
+        {"input": "xxxyyyzzz", "output": "x3y3z3"}
+      ]
+    },
+    {
+      "id": "M04",
+      "difficulty": "medium",
+      "title": "Caesar Shift By 3",
+      "description": "Read a lowercase alphabetic string S. Shift each letter forward by 3 positions in the English alphabet (wrapping z to c) and output the transformed string. Non-letter characters will not appear.",
+      "input_output_examples": [
+        {"input": "abc", "output": "def"},
+        {"input": "xyz", "output": "abc"},
+        {"input": "attack", "output": "dwwdfn"},
+        {"input": "hello", "output": "khoor"},
+        {"input": "zzz", "output": "ccc"},
+        {"input": "a", "output": "d"}
+      ]
+    },
+    {
+      "id": "M05",
+      "difficulty": "medium",
+      "title": "Simple Binary Expression",
+      "description": "Read an expression formatted as 'a op b' with single spaces, where a and b are integers and op is one of '+', '-', or '*'. Evaluate the expression using integer arithmetic and output the result as an integer.",
+      "input_output_examples": [
+        {"input": "3 + 5", "output": "8"},
+        {"input": "10 - 7", "output": "3"},
+        {"input": "6 * 4", "output": "24"},
+        {"input": "0 + 0", "output": "0"},
+        {"input": "-5 * 2", "output": "-10"},
+        {"input": "100 - 50", "output": "50"}
+      ]
+    },
+    {
+      "id": "M06",
+      "difficulty": "medium",
+      "title": "Greatest Common Divisor",
+      "description": "Read two integers a and b separated by whitespace. Compute their greatest common divisor as a positive integer and output that value.",
+      "input_output_examples": [
+        {"input": "12 18", "output": "6"},
+        {"input": "7 5", "output": "1"},
+        {"input": "21 28", "output": "7"},
+        {"input": "100 25", "output": "25"},
+        {"input": "17 17", "output": "17"},
+        {"input": "48 36", "output": "12"}
+      ]
+    },
+    {
+      "id": "M07",
+      "difficulty": "medium",
+      "title": "Factorial",
+      "description": "Read an integer N with 0 ≤ N ≤ 10. Compute N! (the factorial) using integer arithmetic and output the result.",
+      "input_output_examples": [
+        {"input": "5", "output": "120"},
+        {"input": "0", "output": "1"},
+        {"input": "7", "output": "5040"},
+        {"input": "1", "output": "1"},
+        {"input": "3", "output": "6"},
+        {"input": "10", "output": "3628800"}
+      ]
+    },
+    {
+      "id": "M08",
+      "difficulty": "medium",
+      "title": "Nth Fibonacci Number",
+      "description": "Read an integer N ≥ 1 and output the Nth Fibonacci number using the 1-indexed sequence with F1 = 1 and F2 = 1. Use arbitrary-precision integers if needed.",
+      "input_output_examples": [
+        {"input": "1", "output": "1"},
+        {"input": "5", "output": "5"},
+        {"input": "10", "output": "55"},
+        {"input": "2", "output": "1"},
+        {"input": "7", "output": "13"},
+        {"input": "15", "output": "610"}
+      ]
+    },
+    {
+      "id": "M09",
+      "difficulty": "medium",
+      "title": "Decimal To Binary",
+      "description": "Read a non-negative integer N in decimal. Output its binary representation without leading zeros (except print '0' when N = 0).",
+      "input_output_examples": [
+        {"input": "5", "output": "101"},
+        {"input": "8", "output": "1000"},
+        {"input": "0", "output": "0"},
+        {"input": "15", "output": "1111"},
+        {"input": "1", "output": "1"},
+        {"input": "255", "output": "11111111"}
+      ]
+    },
+    {
+      "id": "M10",
+      "difficulty": "medium",
+      "title": "Binary To Decimal",
+      "description": "Read a string consisting only of characters '0' and '1'. Interpret it as a binary number and output the corresponding decimal integer without extra text.",
+      "input_output_examples": [
+        {"input": "101", "output": "5"},
+        {"input": "1000", "output": "8"},
+        {"input": "0", "output": "0"},
+        {"input": "1111", "output": "15"},
+        {"input": "1", "output": "1"},
+        {"input": "11111111", "output": "255"}
+      ]
+    },
+    {
+      "id": "M11",
+      "difficulty": "medium",
+      "title": "Substring Occurrences",
+      "description": "Read a string S on the first line and a pattern P on the second line. Count how many times P appears in S, allowing overlapping matches, and output that integer count.",
+      "input_output_examples": [
+        {"input": "aaaa\naa", "output": "3"},
+        {"input": "abcabc\nabc", "output": "2"},
+        {"input": "hello\nx", "output": "0"},
+        {"input": "abababa\naba", "output": "3"},
+        {"input": "xxxxx\nx", "output": "5"},
+        {"input": "test\ntest", "output": "1"}
+      ]
+    },
+    {
+      "id": "M12",
+      "difficulty": "medium",
+      "title": "Remove Vowels",
+      "description": "Read a line of text and remove every vowel character (a, e, i, o, u in both uppercase and lowercase). Output the filtered string preserving the order of the remaining characters.",
+      "input_output_examples": [
+        {"input": "hello", "output": "hll"},
+        {"input": "Esoteric", "output": "strc"},
+        {"input": "xyz", "output": "xyz"},
+        {"input": "AEIOU", "output": ""},
+        {"input": "brainfuck", "output": "brnfck"},
+        {"input": "test", "output": "tst"}
+      ]
+    },
+    {
+      "id": "M13",
+      "difficulty": "medium",
+      "title": "Sort Numbers",
+      "description": "Read an integer N on the first line followed by a second line containing N integers separated by spaces. Output the integers sorted in ascending order separated by single spaces.",
+      "input_output_examples": [
+        {"input": "5\n3 1 4 1 2", "output": "1 1 2 3 4"},
+        {"input": "3\n10 -5 7", "output": "-5 7 10"},
+        {"input": "1\n42", "output": "42"},
+        {"input": "4\n9 8 7 6", "output": "6 7 8 9"},
+        {"input": "6\n1 2 3 4 5 6", "output": "1 2 3 4 5 6"},
+        {"input": "3\n5 5 5", "output": "5 5 5"}
+      ]
+    },
+    {
+      "id": "M14",
+      "difficulty": "medium",
+      "title": "Second Largest Distinct Number",
+      "description": "Read an integer N ≥ 2 followed by N integers on the next line. Consider the distinct values and output the second largest distinct value. Inputs are guaranteed to contain at least two distinct numbers.",
+      "input_output_examples": [
+        {"input": "4\n1 4 2 3", "output": "3"},
+        {"input": "5\n10 20 20 30 40", "output": "30"},
+        {"input": "2\n0 -1", "output": "-1"},
+        {"input": "6\n5 5 5 3 3 1", "output": "3"},
+        {"input": "3\n100 50 75", "output": "75"},
+        {"input": "4\n-10 -20 -30 -40", "output": "-20"}
+      ]
+    },
+    {
+      "id": "M15",
+      "difficulty": "medium",
+      "title": "Anagram Test",
+      "description": "Read two lowercase strings S1 and S2 (no spaces) on separate lines. Output 'yes' if S1 and S2 contain exactly the same characters with the same multiplicities (anagrams), otherwise output 'no'.",
+      "input_output_examples": [
+        {"input": "listen\nsilent", "output": "yes"},
+        {"input": "aa\nab", "output": "no"},
+        {"input": "abc\ncba", "output": "yes"},
+        {"input": "hello\nworld", "output": "no"},
+        {"input": "aabb\nbbaa", "output": "yes"},
+        {"input": "a\na", "output": "yes"}
+      ]
+    },
+    {
+      "id": "M16",
+      "difficulty": "medium",
+      "title": "Interleave Two Strings",
+      "description": "Read two strings S1 and S2 of equal length on separate lines. Construct a new string by alternating characters: S1[0], S2[0], S1[1], S2[1], ... until the end. Output the interleaved string.",
+      "input_output_examples": [
+        {"input": "abc\nXYZ", "output": "aXbYcZ"},
+        {"input": "hi\n12", "output": "h1i2"},
+        {"input": "a\nb", "output": "ab"},
+        {"input": "abcd\n1234", "output": "a1b2c3d4"},
+        {"input": "xx\nyy", "output": "xyxy"},
+        {"input": "test\ncode", "output": "tceosdte"}
+      ]
+    },
+    {
+      "id": "M17",
+      "difficulty": "medium",
+      "title": "Replace Spaces With Underscores",
+      "description": "Read a line of text and output the same string but with every space character replaced by an underscore ('_'). All other characters stay unchanged.",
+      "input_output_examples": [
+        {"input": "hello world", "output": "hello_world"},
+        {"input": "a b c", "output": "a_b_c"},
+        {"input": "nospace", "output": "nospace"},
+        {"input": "   ", "output": "___"},
+        {"input": "one two three", "output": "one_two_three"},
+        {"input": "x y", "output": "x_y"}
+      ]
+    },
+    {
+      "id": "M18",
+      "difficulty": "medium",
+      "title": "Sum Of List",
+      "description": "Read an integer N followed by a line of N integers separated by spaces. Sum the integers exactly and output the total.",
+      "input_output_examples": [
+        {"input": "4\n1 2 3 4", "output": "10"},
+        {"input": "3\n10 -5 -5", "output": "0"},
+        {"input": "1\n100", "output": "100"},
+        {"input": "5\n1 1 1 1 1", "output": "5"},
+        {"input": "2\n50 50", "output": "100"},
+        {"input": "6\n-1 -2 -3 -4 -5 -6", "output": "-21"}
+      ]
+    },
+    {
+      "id": "M19",
+      "difficulty": "medium",
+      "title": "Characters At Even Indices",
+      "description": "Read a string S and output a new string consisting of the characters at even indices (0-based) from S in their original order.",
+      "input_output_examples": [
+        {"input": "abcdef", "output": "ace"},
+        {"input": "a", "output": "a"},
+        {"input": "xyz", "output": "xz"},
+        {"input": "0123456789", "output": "02468"},
+        {"input": "ab", "output": "a"},
+        {"input": "hello world", "output": "hlowrd"}
+      ]
+    },
+    {
+      "id": "M20",
+      "difficulty": "medium",
+      "title": "Count Distinct Characters",
+      "description": "Read a string S and output the number of distinct characters present in S. Treat uppercase and lowercase as different characters.",
+      "input_output_examples": [
+        {"input": "aaa", "output": "1"},
+        {"input": "abca", "output": "3"},
+        {"input": "hello", "output": "4"},
+        {"input": "AaBbCc", "output": "6"},
+        {"input": "abcdefghij", "output": "10"},
+        {"input": "xxxYYYzzz", "output": "3"}
+      ]
+    },
+    {
+      "id": "H01",
+      "difficulty": "hard",
+      "title": "Balanced Parentheses",
+      "description": "Read a string made only of '(' and ')' characters. Determine if the parentheses are balanced using the usual rules (every '(' closes in order, no prefix has more ')' than '('). Output 'yes' if balanced, otherwise 'no'.",
+      "input_output_examples": [
+        {"input": "()()", "output": "yes"},
+        {"input": "((()))", "output": "yes"},
+        {"input": "())(", "output": "no"},
+        {"input": "(", "output": "no"},
+        {"input": "", "output": "yes"},
+        {"input": "(()())", "output": "yes"}
+      ]
+    },
+    {
+      "id": "H02",
+      "difficulty": "hard",
+      "title": "Evaluate Expression With Precedence",
+      "description": "Read a mathematical expression containing positive integers and the operators '+', '-', and '*' with no parentheses. Respect standard precedence (multiplication before addition/subtraction, evaluate left to right within the same precedence) and output the resulting integer.",
+      "input_output_examples": [
+        {"input": "2+3*4", "output": "14"},
+        {"input": "10-2*3", "output": "4"},
+        {"input": "8*3+2-5", "output": "21"},
+        {"input": "1+1+1", "output": "3"},
+        {"input": "5*5*2", "output": "50"},
+        {"input": "100-50+25", "output": "75"}
+      ]
+    },
+    {
+      "id": "H03",
+      "difficulty": "hard",
+      "title": "Count Primes Up To N",
+      "description": "Read an integer N ≥ 2. Count how many prime numbers are less than or equal to N and output that count as an integer.",
+      "input_output_examples": [
+        {"input": "10", "output": "4"},
+        {"input": "20", "output": "8"},
+        {"input": "2", "output": "1"},
+        {"input": "30", "output": "10"},
+        {"input": "100", "output": "25"},
+        {"input": "50", "output": "15"}
+      ]
+    },
+    {
+      "id": "H04",
+      "difficulty": "hard",
+      "title": "Nth Prime Number",
+      "description": "Read an integer K ≥ 1 and output the Kth prime number in the increasing sequence 2, 3, 5, 7, ... .",
+      "input_output_examples": [
+        {"input": "1", "output": "2"},
+        {"input": "5", "output": "11"},
+        {"input": "10", "output": "29"},
+        {"input": "3", "output": "5"},
+        {"input": "7", "output": "17"},
+        {"input": "15", "output": "47"}
+      ]
+    },
+    {
+      "id": "H05",
+      "difficulty": "hard",
+      "title": "Big Integer Addition",
+      "description": "Read two non-negative integers A and B given as decimal strings on separate lines (they may be very large). Output the decimal representation of A + B with no leading zeros unless the result is zero.",
+      "input_output_examples": [
+        {"input": "123\n456", "output": "579"},
+        {"input": "999\n1", "output": "1000"},
+        {"input": "123456789123456789\n987654321", "output": "123456790111111110"},
+        {"input": "0\n0", "output": "0"},
+        {"input": "999999999\n1", "output": "1000000000"},
+        {"input": "12345\n67890", "output": "80235"}
+      ]
+    },
+    {
+      "id": "H06",
+      "difficulty": "hard",
+      "title": "Longest Word",
+      "description": "Read a line containing words separated by single spaces. Identify the longest word and output it exactly as it appears. If multiple words tie for longest, output the first such word.",
+      "input_output_examples": [
+        {"input": "this is test", "output": "this"},
+        {"input": "aa bbbb ccc", "output": "bbbb"},
+        {"input": "one three five", "output": "three"},
+        {"input": "programming is fun", "output": "programming"},
+        {"input": "a bc def", "output": "def"},
+        {"input": "same same same", "output": "same"}
+      ]
+    },
+    {
+      "id": "H07",
+      "difficulty": "hard",
+      "title": "Longest Common Prefix",
+      "description": "Read an integer N followed by N lines containing strings. Compute the longest common prefix shared by all strings (exact character comparison). Output the prefix, or an empty string if the strings share no common prefix.",
+      "input_output_examples": [
+        {"input": "3\nflower\nflow\nflight", "output": "fl"},
+        {"input": "2\ndog\nracecar", "output": ""},
+        {"input": "4\ninterspecies\ninterstellar\ninterstate\ninternet", "output": "inter"},
+        {"input": "2\nabc\nabc", "output": "abc"},
+        {"input": "3\nprefix\npreset\npreview", "output": "pre"},
+        {"input": "2\nab\ncd", "output": ""}
+      ]
+    },
+    {
+      "id": "H08",
+      "difficulty": "hard",
+      "title": "Digit Frequency",
+      "description": "Read a string consisting solely of digits 0-9. Count the frequency of each digit and output ten integers separated by single spaces representing counts for 0, 1, ..., 9 in that order.",
+      "input_output_examples": [
+        {"input": "0123456789", "output": "1 1 1 1 1 1 1 1 1 1"},
+        {"input": "000111222", "output": "3 3 3 0 0 0 0 0 0 0"},
+        {"input": "123123", "output": "0 2 2 2 0 0 0 0 0 0"},
+        {"input": "9999", "output": "0 0 0 0 0 0 0 0 0 4"},
+        {"input": "1234567890", "output": "1 1 1 1 1 1 1 1 1 1"},
+        {"input": "11111", "output": "0 5 0 0 0 0 0 0 0 0"}
+      ]
+    },
+    {
+      "id": "H09",
+      "difficulty": "hard",
+      "title": "General Caesar Cipher",
+      "description": "Read an integer K (possibly negative) followed by a lowercase string S. Shift each character forward by K positions modulo 26 (wrapping around the alphabet) and output the resulting string.",
+      "input_output_examples": [
+        {"input": "1\nabc", "output": "bcd"},
+        {"input": "2\nxyz", "output": "zab"},
+        {"input": "13\nhello", "output": "uryyb"},
+        {"input": "-1\nbcd", "output": "abc"},
+        {"input": "26\nhello", "output": "hello"},
+        {"input": "0\ntest", "output": "test"}
+      ]
+    },
+    {
+      "id": "H10",
+      "difficulty": "hard",
+      "title": "Remove Consecutive Duplicates",
+      "description": "Read a string S and remove consecutive duplicate characters so that each maximal run is replaced by a single occurrence. Output the compressed string.",
+      "input_output_examples": [
+        {"input": "aaabbbbcc", "output": "abc"},
+        {"input": "hellooo", "output": "helo"},
+        {"input": "xyz", "output": "xyz"},
+        {"input": "aabbccdd", "output": "abcd"},
+        {"input": "a", "output": "a"},
+        {"input": "mississippi", "output": "misisipi"}
+      ]
+    },
+    {
+      "id": "H11",
+      "difficulty": "hard",
+      "title": "Run Length Decoding",
+      "description": "Read a run-length encoded string consisting of alternating characters and single-digit counts (1-9), e.g., 'a3b2'. Decode it by repeating each character count times and output the expanded string.",
+      "input_output_examples": [
+        {"input": "a3b2", "output": "aaabb"},
+        {"input": "x1y1z1", "output": "xyz"},
+        {"input": "z5", "output": "zzzzz"},
+        {"input": "a1b1c1d1", "output": "abcd"},
+        {"input": "x9", "output": "xxxxxxxxx"},
+        {"input": "a2b3c4", "output": "aabbbcccc"}
+      ]
+    },
+    {
+      "id": "H12",
+      "difficulty": "hard",
+      "title": "ASCII Sum",
+      "description": "Read a string S and compute the sum of the ASCII/Unicode code points of all characters. Output the sum as an integer.",
+      "input_output_examples": [
+        {"input": "A", "output": "65"},
+        {"input": "AB", "output": "131"},
+        {"input": "abc", "output": "294"},
+        {"input": "a", "output": "97"},
+        {"input": "Hello", "output": "500"},
+        {"input": "123", "output": "150"}
+      ]
+    },
+    {
+      "id": "H13",
+      "difficulty": "hard",
+      "title": "Polynomial Evaluation",
+      "description": "Read an integer n, then a line containing n+1 integer coefficients for a degree-n polynomial starting with the highest-degree term, followed by an integer x on the next line. Evaluate the polynomial at x and output the integer result.",
+      "input_output_examples": [
+        {"input": "2\n1 0 -1\n2", "output": "3"},
+        {"input": "1\n2 3\n10", "output": "23"},
+        {"input": "3\n1 0 0 0\n3", "output": "27"},
+        {"input": "0\n5\n100", "output": "5"},
+        {"input": "2\n1 1 1\n2", "output": "7"},
+        {"input": "1\n1 -1\n5", "output": "4"}
+      ]
+    },
+    {
+      "id": "H14",
+      "difficulty": "hard",
+      "title": "List All Divisors",
+      "description": "Read a positive integer N and output all positive divisors of N in strictly increasing order separated by single spaces.",
+      "input_output_examples": [
+        {"input": "6", "output": "1 2 3 6"},
+        {"input": "1", "output": "1"},
+        {"input": "12", "output": "1 2 3 4 6 12"},
+        {"input": "7", "output": "1 7"},
+        {"input": "100", "output": "1 2 4 5 10 20 25 50 100"},
+        {"input": "36", "output": "1 2 3 4 6 9 12 18 36"}
+      ]
+    },
+    {
+      "id": "H15",
+      "difficulty": "hard",
+      "title": "Tape Walk Final Position",
+      "description": "Start with X = 0. Read a string consisting of the characters 'L' and 'R'. For each 'L' decrement X by 1; for each 'R' increment X by 1. After processing the entire string, output the final value of X as an integer.",
+      "input_output_examples": [
+        {"input": "LRLR", "output": "0"},
+        {"input": "RRR", "output": "3"},
+        {"input": "LLR", "output": "-1"},
+        {"input": "RRRRRR", "output": "6"},
+        {"input": "LLLLLL", "output": "-6"},
+        {"input": "RLRLRL", "output": "0"}
+      ]
+    },
+    {
+      "id": "H16",
+      "difficulty": "hard",
+      "title": "Longest Run Length",
+      "description": "Read a string S and compute the length (number of characters) of the longest contiguous block of identical characters. Output that length as an integer.",
+      "input_output_examples": [
+        {"input": "aaabb", "output": "3"},
+        {"input": "ababab", "output": "1"},
+        {"input": "mississippi", "output": "2"},
+        {"input": "aaaaaaa", "output": "7"},
+        {"input": "abc", "output": "1"},
+        {"input": "aabbbbccc", "output": "4"}
+      ]
+    },
+    {
+      "id": "H17",
+      "difficulty": "hard",
+      "title": "Most Frequent Value",
+      "description": "Read an integer N followed by a line containing N integers. Determine which value appears most frequently. Output that value; if multiple values tie, output the smallest such value.",
+      "input_output_examples": [
+        {"input": "6\n1 2 2 3 3 3", "output": "3"},
+        {"input": "4\n4 4 1 1", "output": "1"},
+        {"input": "1\n7", "output": "7"},
+        {"input": "5\n5 5 5 5 5", "output": "5"},
+        {"input": "6\n1 2 3 1 2 3", "output": "1"},
+        {"input": "3\n10 20 10", "output": "10"}
+      ]
+    },
+    {
+      "id": "H18",
+      "difficulty": "hard",
+      "title": "Divisible By 3",
+      "description": "Read a non-negative integer represented as a string of digits. Decide whether the number is divisible by 3 using any method and output 'yes' if divisible, otherwise 'no'.",
+      "input_output_examples": [
+        {"input": "9", "output": "yes"},
+        {"input": "11", "output": "no"},
+        {"input": "123456", "output": "yes"},
+        {"input": "0", "output": "yes"},
+        {"input": "1", "output": "no"},
+        {"input": "999999999", "output": "yes"}
+      ]
+    },
+    {
+      "id": "H19",
+      "difficulty": "hard",
+      "title": "Plus Minus Reset Machine",
+      "description": "Initialize X = 0. Read a string consisting of '+', '-', and '0'. For each '+', increment X; for '-', decrement X; for '0', reset X to 0. After processing all characters, output the final integer value of X.",
+      "input_output_examples": [
+        {"input": "+-+", "output": "1"},
+        {"input": "++0+", "output": "1"},
+        {"input": "--", "output": "-2"},
+        {"input": "++++++0", "output": "0"},
+        {"input": "+-+-+-", "output": "0"},
+        {"input": "++++", "output": "4"}
+      ]
+    },
+    {
+      "id": "H20",
+      "difficulty": "hard",
+      "title": "Sort Strings Lexicographically",
+      "description": "Read an integer N followed by N lines, each containing a string. Sort the strings lexicographically (dictionary order) using regular character comparison and output them in a single line separated by single spaces.",
+      "input_output_examples": [
+        {"input": "3\nbanana\napple\ncherry", "output": "apple banana cherry"},
+        {"input": "2\ndog\ncat", "output": "cat dog"},
+        {"input": "1\nzoo", "output": "zoo"},
+        {"input": "4\nz\ny\nx\nw", "output": "w x y z"},
+        {"input": "3\nabc\nab\na", "output": "a ab abc"},
+        {"input": "2\nhello\nworld", "output": "hello world"}
+      ]
+    },
+    {
+      "id": "X01",
+      "difficulty": "extra_hard",
+      "title": "Prime Factorization",
+      "description": "Read a positive integer N > 1. Output its prime factorization as space-separated primes in ascending order with repetition. For example, 12 = 2*2*3, so output '2 2 3'.",
+      "input_output_examples": [
+        {"input": "12", "output": "2 2 3"},
+        {"input": "7", "output": "7"},
+        {"input": "100", "output": "2 2 5 5"},
+        {"input": "2", "output": "2"},
+        {"input": "60", "output": "2 2 3 5"},
+        {"input": "81", "output": "3 3 3 3"}
+      ]
+    },
+    {
+      "id": "X02",
+      "difficulty": "extra_hard",
+      "title": "Longest Increasing Subsequence Length",
+      "description": "Read an integer N followed by N integers. Find the length of the longest strictly increasing subsequence (not necessarily contiguous) and output that length.",
+      "input_output_examples": [
+        {"input": "6\n10 9 2 5 3 7", "output": "3"},
+        {"input": "5\n1 2 3 4 5", "output": "5"},
+        {"input": "5\n5 4 3 2 1", "output": "1"},
+        {"input": "8\n0 8 4 12 2 10 6 14", "output": "4"},
+        {"input": "3\n1 1 1", "output": "1"},
+        {"input": "7\n3 1 4 1 5 9 2", "output": "4"}
+      ]
+    },
+    {
+      "id": "X03",
+      "difficulty": "extra_hard",
+      "title": "Matrix Multiplication Result Element",
+      "description": "Read dimensions M, N, P, then an MxN matrix A (M lines, N integers each), then an NxP matrix B (N lines, P integers each), then row index i and column index j (0-based). Output the element at position (i,j) in the product matrix A*B.",
+      "input_output_examples": [
+        {"input": "2 2 2\n1 2\n3 4\n5 6\n7 8\n0 0", "output": "19"},
+        {"input": "2 2 2\n1 2\n3 4\n5 6\n7 8\n1 1", "output": "50"},
+        {"input": "2 3 2\n1 2 3\n4 5 6\n1 0\n0 1\n0 0\n0 0", "output": "1"},
+        {"input": "1 1 1\n5\n3\n0 0", "output": "15"},
+        {"input": "2 2 2\n1 0\n0 1\n2 3\n4 5\n0 1", "output": "3"},
+        {"input": "2 2 2\n2 0\n0 2\n3 0\n0 3\n1 1", "output": "6"}
+      ]
+    },
+    {
+      "id": "X04",
+      "difficulty": "extra_hard",
+      "title": "Evaluate Postfix Expression",
+      "description": "Read a postfix (Reverse Polish Notation) expression with single-digit operands and operators +, -, *, / separated by spaces. Evaluate using integer arithmetic (truncate toward zero for division) and output the result.",
+      "input_output_examples": [
+        {"input": "3 4 +", "output": "7"},
+        {"input": "5 1 2 + 4 * + 3 -", "output": "14"},
+        {"input": "2 3 * 4 +", "output": "10"},
+        {"input": "9 3 /", "output": "3"},
+        {"input": "5 3 -", "output": "2"},
+        {"input": "2 3 4 * +", "output": "14"}
+      ]
+    },
+    {
+      "id": "X05",
+      "difficulty": "extra_hard",
+      "title": "Merge Two Sorted Arrays",
+      "description": "Read two lines, each containing space-separated integers in sorted ascending order. Merge them into a single sorted array and output the result as space-separated integers.",
+      "input_output_examples": [
+        {"input": "1 3 5\n2 4 6", "output": "1 2 3 4 5 6"},
+        {"input": "1 2 3\n4 5 6", "output": "1 2 3 4 5 6"},
+        {"input": "1\n2", "output": "1 2"},
+        {"input": "1 1 1\n1 1 1", "output": "1 1 1 1 1 1"},
+        {"input": "10 20 30\n5 15 25", "output": "5 10 15 20 25 30"},
+        {"input": "-5 0 5\n-3 3", "output": "-5 -3 0 3 5"}
+      ]
+    },
+    {
+      "id": "X06",
+      "difficulty": "extra_hard",
+      "title": "Compute Power Modulo",
+      "description": "Read three integers: base B, exponent E, and modulus M. Compute B^E mod M using efficient modular exponentiation and output the result. Assume E >= 0 and M > 0.",
+      "input_output_examples": [
+        {"input": "2 10 1000", "output": "24"},
+        {"input": "3 5 7", "output": "5"},
+        {"input": "2 0 5", "output": "1"},
+        {"input": "10 100 13", "output": "3"},
+        {"input": "7 7 100", "output": "43"},
+        {"input": "5 3 13", "output": "8"}
+      ]
+    },
+    {
+      "id": "X07",
+      "difficulty": "extra_hard",
+      "title": "Longest Palindromic Substring Length",
+      "description": "Read a string S. Find the longest contiguous substring that is a palindrome and output its length.",
+      "input_output_examples": [
+        {"input": "babad", "output": "3"},
+        {"input": "cbbd", "output": "2"},
+        {"input": "a", "output": "1"},
+        {"input": "racecar", "output": "7"},
+        {"input": "abcdefg", "output": "1"},
+        {"input": "abaaba", "output": "6"}
+      ]
+    },
+    {
+      "id": "X08",
+      "difficulty": "extra_hard",
+      "title": "Count Set Bits In Range",
+      "description": "Read two integers L and R (0 <= L <= R). Count the total number of 1-bits in the binary representations of all integers from L to R inclusive, and output that count.",
+      "input_output_examples": [
+        {"input": "0 3", "output": "4"},
+        {"input": "1 1", "output": "1"},
+        {"input": "5 7", "output": "7"},
+        {"input": "0 15", "output": "32"},
+        {"input": "10 10", "output": "2"},
+        {"input": "1 10", "output": "17"}
+      ]
+    },
+    {
+      "id": "X09",
+      "difficulty": "extra_hard",
+      "title": "Bracket Depth Maximum",
+      "description": "Read a string consisting only of '(' and ')' characters. The string may or may not be balanced. Output the maximum nesting depth achieved at any point while reading left to right (0 if empty or all closing brackets come first).",
+      "input_output_examples": [
+        {"input": "((()))", "output": "3"},
+        {"input": "()()()", "output": "1"},
+        {"input": "((()()))", "output": "3"},
+        {"input": "()", "output": "1"},
+        {"input": ")))((", "output": "2"},
+        {"input": "((((", "output": "4"}
+      ]
+    },
+    {
+      "id": "X10",
+      "difficulty": "extra_hard",
+      "title": "String Rotation Check",
+      "description": "Read two strings S1 and S2 of the same length. Determine if S2 is a rotation of S1 (e.g., 'abcde' rotated is 'cdeab'). Output 'yes' if S2 is a rotation of S1, otherwise 'no'.",
+      "input_output_examples": [
+        {"input": "abcde\ncdeab", "output": "yes"},
+        {"input": "abc\ncab", "output": "yes"},
+        {"input": "abc\nbca", "output": "yes"},
+        {"input": "abc\nabc", "output": "yes"},
+        {"input": "abc\nacb", "output": "no"},
+        {"input": "aaab\nabaa", "output": "yes"}
+      ]
+    },
+    {
+      "id": "X11",
+      "difficulty": "extra_hard",
+      "title": "Count Inversions",
+      "description": "Read an integer N followed by N integers. Count the number of inversions: pairs (i,j) where i < j but arr[i] > arr[j]. Output that count.",
+      "input_output_examples": [
+        {"input": "5\n2 4 1 3 5", "output": "3"},
+        {"input": "5\n1 2 3 4 5", "output": "0"},
+        {"input": "5\n5 4 3 2 1", "output": "10"},
+        {"input": "3\n3 2 1", "output": "3"},
+        {"input": "4\n1 3 2 4", "output": "1"},
+        {"input": "6\n6 5 4 3 2 1", "output": "15"}
+      ]
+    },
+    {
+      "id": "X12",
+      "difficulty": "extra_hard",
+      "title": "Least Common Multiple",
+      "description": "Read two positive integers A and B. Compute and output their least common multiple (LCM).",
+      "input_output_examples": [
+        {"input": "4 6", "output": "12"},
+        {"input": "3 5", "output": "15"},
+        {"input": "12 18", "output": "36"},
+        {"input": "7 7", "output": "7"},
+        {"input": "1 100", "output": "100"},
+        {"input": "15 20", "output": "60"}
+      ]
+    },
+    {
+      "id": "X13",
+      "difficulty": "extra_hard",
+      "title": "Valid Parentheses Types",
+      "description": "Read a string containing only '(', ')', '[', ']', '{', '}'. Check if all brackets are balanced and properly nested. Output 'yes' if valid, 'no' otherwise.",
+      "input_output_examples": [
+        {"input": "()[]{}", "output": "yes"},
+        {"input": "([{}])", "output": "yes"},
+        {"input": "([)]", "output": "no"},
+        {"input": "{[]}", "output": "yes"},
+        {"input": "((()))", "output": "yes"},
+        {"input": "[(])", "output": "no"}
+      ]
+    },
+    {
+      "id": "X14",
+      "difficulty": "extra_hard",
+      "title": "Next Greater Element",
+      "description": "Read an integer N followed by N integers. For each element, find the first element to its right that is greater than it. Output N integers where each is the next greater element, or -1 if none exists.",
+      "input_output_examples": [
+        {"input": "4\n4 5 2 10", "output": "5 10 10 -1"},
+        {"input": "4\n3 2 1 0", "output": "-1 -1 -1 -1"},
+        {"input": "5\n1 2 3 4 5", "output": "2 3 4 5 -1"},
+        {"input": "3\n1 3 2", "output": "3 -1 -1"},
+        {"input": "4\n2 1 4 3", "output": "4 4 -1 -1"},
+        {"input": "5\n5 4 3 2 1", "output": "-1 -1 -1 -1 -1"}
+      ]
+    },
+    {
+      "id": "X15",
+      "difficulty": "extra_hard",
+      "title": "Spiral Matrix Traversal",
+      "description": "Read integers R and C for rows and columns, then R lines of C integers each representing a matrix. Output all elements in spiral order (clockwise from top-left) as space-separated integers.",
+      "input_output_examples": [
+        {"input": "3 3\n1 2 3\n4 5 6\n7 8 9", "output": "1 2 3 6 9 8 7 4 5"},
+        {"input": "2 2\n1 2\n3 4", "output": "1 2 4 3"},
+        {"input": "1 4\n1 2 3 4", "output": "1 2 3 4"},
+        {"input": "4 1\n1\n2\n3\n4", "output": "1 2 3 4"},
+        {"input": "2 3\n1 2 3\n4 5 6", "output": "1 2 3 6 5 4"},
+        {"input": "3 2\n1 2\n3 4\n5 6", "output": "1 2 4 6 5 3"}
+      ]
+    },
+    {
+      "id": "X16",
+      "difficulty": "extra_hard",
+      "title": "Hamming Distance",
+      "description": "Read two non-negative integers A and B. Compute the Hamming distance between their binary representations (number of bit positions where they differ) and output that count.",
+      "input_output_examples": [
+        {"input": "1 4", "output": "2"},
+        {"input": "3 1", "output": "1"},
+        {"input": "0 0", "output": "0"},
+        {"input": "15 0", "output": "4"},
+        {"input": "255 0", "output": "8"},
+        {"input": "7 10", "output": "3"}
+      ]
+    },
+    {
+      "id": "X17",
+      "difficulty": "extra_hard",
+      "title": "Roman To Integer",
+      "description": "Read a valid Roman numeral string (I, V, X, L, C, D, M). Convert it to an integer and output the result. Input will be valid and in range 1-3999.",
+      "input_output_examples": [
+        {"input": "III", "output": "3"},
+        {"input": "IV", "output": "4"},
+        {"input": "IX", "output": "9"},
+        {"input": "LVIII", "output": "58"},
+        {"input": "MCMXCIV", "output": "1994"},
+        {"input": "MMXXV", "output": "2025"}
+      ]
+    },
+    {
+      "id": "X18",
+      "difficulty": "extra_hard",
+      "title": "Integer To Roman",
+      "description": "Read an integer N in the range 1-3999. Convert it to a Roman numeral string using standard notation (I, V, X, L, C, D, M with subtractive pairs) and output the result.",
+      "input_output_examples": [
+        {"input": "3", "output": "III"},
+        {"input": "4", "output": "IV"},
+        {"input": "9", "output": "IX"},
+        {"input": "58", "output": "LVIII"},
+        {"input": "1994", "output": "MCMXCIV"},
+        {"input": "2025", "output": "MMXXV"}
+      ]
+    },
+    {
+      "id": "X19",
+      "difficulty": "extra_hard",
+      "title": "Permutation Check",
+      "description": "Read an integer N followed by N integers. Determine if the sequence is a permutation of 1 to N (each number 1 to N appears exactly once). Output 'yes' if it is a valid permutation, 'no' otherwise.",
+      "input_output_examples": [
+        {"input": "4\n4 1 3 2", "output": "yes"},
+        {"input": "3\n1 2 2", "output": "no"},
+        {"input": "5\n1 2 3 4 5", "output": "yes"},
+        {"input": "3\n1 3 2", "output": "yes"},
+        {"input": "4\n1 2 3 5", "output": "no"},
+        {"input": "1\n1", "output": "yes"}
+      ]
+    },
+    {
+      "id": "X20",
+      "difficulty": "extra_hard",
+      "title": "Josephus Problem",
+      "description": "Read integers N and K. N people stand in a circle numbered 1 to N. Starting from person 1, count K people clockwise and eliminate that person. Repeat until one remains. Output the survivor's original number.",
+      "input_output_examples": [
+        {"input": "5 2", "output": "3"},
+        {"input": "7 3", "output": "4"},
+        {"input": "1 1", "output": "1"},
+        {"input": "6 1", "output": "6"},
+        {"input": "10 2", "output": "5"},
+        {"input": "4 2", "output": "1"}
+      ]
+    }
+  ]
+}
