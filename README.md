@@ -2,7 +2,7 @@
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Tests](https://github.com/lossfunk/esolang-bench/actions/workflows/test.yml/badge.svg)](https://github.com/lossfunk/esolang-bench/actions)
+[![Tests](https://github.com/Lossfunk/EsolangBench/actions/workflows/test.yml/badge.svg)](https://github.com/Lossfunk/EsolangBench/actions)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-arcAman07%2FEsolang--Bench-blue)](https://huggingface.co/datasets/arcAman07/Esolang-Bench)
 
 **Evaluating Genuine Reasoning in Large Language Models via Esoteric Programming Languages**

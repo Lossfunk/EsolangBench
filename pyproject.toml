@@ -29,10 +29,10 @@ esolang-interpret = "esolang_bench.interpreters:cli_main"
 esolang-run = "esolang_bench.benchmarking.runner_utils:main"
 
 [project.urls]
-Homepage = "https://github.com/lossfunk/esolang-bench"
+Homepage = "https://github.com/Lossfunk/EsolangBench"
 Documentation = "https://lossfunk.github.io/esolang-bench"
-Repository = "https://github.com/lossfunk/esolang-bench"
-Issues = "https://github.com/lossfunk/esolang-bench/issues"
+Repository = "https://github.com/Lossfunk/EsolangBench"
+Issues = "https://github.com/Lossfunk/EsolangBench/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
