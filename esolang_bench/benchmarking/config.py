@@ -41,13 +41,11 @@ LANGUAGE_METADATA = {
     "brainfuck": {"name": "Brainfuck", "doc_file": "brainfuck.md"},
     "whitespace": {"name": "Whitespace", "doc_file": "whitespace.md"},
     "befunge98": {"name": "Befunge-98", "doc_file": "befunge98.md"},
-    "piet": {"name": "Piet", "doc_file": "piet.md"},
     "unlambda": {"name": "Unlambda", "doc_file": "unlambda.md"},
     "shakespeare": {
         "name": "Shakespeare Programming Language",
         "doc_file": "shakespeare.md",
     },
-    "thue": {"name": "Thue", "doc_file": "thue.md"},
 }
 
 

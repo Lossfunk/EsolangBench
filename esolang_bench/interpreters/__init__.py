@@ -2,19 +2,15 @@ from .base import BaseInterpreter, ExecutionResult
 from .brainfuck import BrainfuckInterpreter
 from .whitespace import WhitespaceInterpreter
 from .befunge98 import Befunge98Interpreter
-from .piet import PietInterpreter
 from .unlambda import UnlambdaInterpreter
 from .shakespeare import ShakespeareInterpreter
-from .thue import ThueInterpreter
 
 _REGISTRY = {
     "brainfuck": BrainfuckInterpreter,
     "whitespace": WhitespaceInterpreter,
     "befunge98": Befunge98Interpreter,
-    "piet": PietInterpreter,
     "unlambda": UnlambdaInterpreter,
     "shakespeare": ShakespeareInterpreter,
-    "thue": ThueInterpreter,
 }
 
 
@@ -31,7 +27,6 @@ __all__ = [
     "BrainfuckInterpreter",
     "WhitespaceInterpreter",
     "Befunge98Interpreter",
-    "PietInterpreter",
     "UnlambdaInterpreter",
     "ShakespeareInterpreter",
     "get_interpreter",

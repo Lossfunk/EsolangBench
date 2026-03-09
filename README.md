@@ -7,7 +7,7 @@
 
 **Evaluating Genuine Reasoning in Large Language Models via Esoteric Programming Languages**
 
-EsoLang-Bench is a benchmark that tests frontier LLMs on code generation in esoteric programming languages: **Brainfuck**, **Befunge-98**, **Whitespace**, **Unlambda**, **Shakespeare**, **Piet**, and **Thue**. These languages have 1,000x–100,000x fewer public repositories than Python (based on GitHub search counts), exposing whether models can genuinely reason about novel computational paradigms or merely pattern-match from memorized code.
+EsoLang-Bench is a benchmark that tests frontier LLMs on code generation in esoteric programming languages: **Brainfuck**, **Befunge-98**, **Whitespace**, **Unlambda**, and **Shakespeare**. These languages have 1,000x–100,000x fewer public repositories than Python (based on GitHub search counts), exposing whether models can genuinely reason about novel computational paradigms or merely pattern-match from memorized code.
 
 📦 **Dataset:** [huggingface.co/datasets/arcAman07/Esolang-Bench](https://huggingface.co/datasets/arcAman07/Esolang-Bench)
 
@@ -140,30 +140,29 @@ Use `--difficulty all` (default) to run all problems.
 
 | Language | Paradigm | GitHub Repos | Best Accuracy |
 |----------|----------|-------------|---------------|
-| Brainfuck | Tape machine | ~2,000 | 6.2% |
-| Befunge-98 | 2D grid | ~400 | 11.2% |
+| Brainfuck | Tape machine | ~5,000 | 13.8% (agentic) |
+| Befunge-98 | 2D grid | ~2,000 | 11.2% |
 | Whitespace | Invisible syntax | ~200 | 0% |
 | Unlambda | Combinators | ~100 | 1.2% |
 | Shakespeare | Theatrical | ~150 | 2.5% |
-| Piet | Visual/color-based | ~100 | -- |
-| Thue | String rewriting | ~50 | -- |
 
 ## Results Summary
 
 | Model | Best Strategy | Overall Accuracy |
 |-------|--------------|-----------------|
 | GPT-5.2 | Self-Scaffolding | 3.8% |
-| O3 | ReAct | 3.2% |
-| Gemini 3 Pro | Self-Scaffolding | 4.6%* |
-| Codex (Agentic) | -- | 11.2%** |
-
-\* Partial coverage (BF/Bef only) | \*\* BF/Bef only
+| O4-mini-high | Self-Scaffolding | 3.2% |
+| Gemini 3 Pro | Self-Scaffolding | 2.8% |
+| Qwen3-235B | Self-Scaffolding | 1.0% |
+| Kimi K2 Thinking | Self-Scaffolding | 0.8% |
+| Codex (Agentic) | -- | 13.8% |
+| Claude Code | -- | 12.5% |
 
 ## Project Structure
 
 ```
 esolang_bench/
-  interpreters/     # Pure-Python interpreters for 7 esolangs
+  interpreters/     # Pure-Python interpreters for 5 esolangs
   benchmarking/     # LLM evaluation harness
     config.py       # Models, regimes, difficulty levels, token limits
     runner_utils.py # All 5 regime runners + CLI entry point
