@@ -5,10 +5,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Tests](https://github.com/Lossfunk/EsolangBench/actions/workflows/test.yml/badge.svg)](https://github.com/Lossfunk/EsolangBench/actions)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-arcAman07%2FEsolang--Bench-blue)](https://huggingface.co/datasets/arcAman07/Esolang-Bench)
+[![Website](https://img.shields.io/badge/Website-esolang--bench.vercel.app-green)](https://esolang-bench.vercel.app)
 
 **Evaluating Genuine Reasoning in Large Language Models via Esoteric Programming Languages**
 
 📄 **Paper:** [arxiv.org/abs/2603.09678](https://arxiv.org/abs/2603.09678)
+🌐 **Website:** [esolang-bench.vercel.app](https://esolang-bench.vercel.app)
 📦 **Dataset:** [huggingface.co/datasets/arcAman07/Esolang-Bench](https://huggingface.co/datasets/arcAman07/Esolang-Bench)
 
 EsoLang-Bench is a benchmark that tests frontier LLMs on code generation in esoteric programming languages: **Brainfuck**, **Befunge-98**, **Whitespace**, **Unlambda**, and **Shakespeare**. These languages have 1,000x–100,000x fewer public repositories than Python (based on GitHub search counts), exposing whether models can genuinely reason about novel computational paradigms or merely pattern-match from memorized code.
