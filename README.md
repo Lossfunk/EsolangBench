@@ -4,14 +4,14 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Tests](https://github.com/Lossfunk/EsolangBench/actions/workflows/test.yml/badge.svg)](https://github.com/Lossfunk/EsolangBench/actions)
-[![Dataset](https://img.shields.io/badge/🤗%20Dataset-arcAman07%2FEsolang--Bench-blue)](https://huggingface.co/datasets/arcAman07/Esolang-Bench)
+[![Dataset](https://img.shields.io/badge/🤗%20Dataset-Lossfunk%2FEsolang--Bench-blue)](https://huggingface.co/datasets/Lossfunk/Esolang-Bench)
 [![Website](https://img.shields.io/badge/Website-esolang--bench.vercel.app-green)](https://esolang-bench.vercel.app)
 
 **Evaluating Genuine Reasoning in Large Language Models via Esoteric Programming Languages**
 
 📄 **Paper:** [arxiv.org/abs/2603.09678](https://arxiv.org/abs/2603.09678)
 🌐 **Website:** [esolang-bench.vercel.app](https://esolang-bench.vercel.app)
-📦 **Dataset:** [huggingface.co/datasets/arcAman07/Esolang-Bench](https://huggingface.co/datasets/arcAman07/Esolang-Bench)
+📦 **Dataset:** [huggingface.co/datasets/Lossfunk/Esolang-Bench](https://huggingface.co/datasets/Lossfunk/Esolang-Bench)
 
 EsoLang-Bench is a benchmark that tests frontier LLMs on code generation in esoteric programming languages: **Brainfuck**, **Befunge-98**, **Whitespace**, **Unlambda**, and **Shakespeare**. These languages have 1,000x–100,000x fewer public repositories than Python (based on GitHub search counts), exposing whether models can genuinely reason about novel computational paradigms or merely pattern-match from memorized code.
 
@@ -46,11 +46,11 @@ The benchmark dataset (80 problems × 4 difficulty tiers) is available on Huggin
 ```python
 from datasets import load_dataset
 
-ds       = load_dataset("arcAman07/Esolang-Bench")               # all 80 problems
-ds_easy  = load_dataset("arcAman07/Esolang-Bench", "easy")       # 20 Easy
-ds_med   = load_dataset("arcAman07/Esolang-Bench", "medium")     # 20 Medium
-ds_hard  = load_dataset("arcAman07/Esolang-Bench", "hard")       # 20 Hard
-ds_xhard = load_dataset("arcAman07/Esolang-Bench", "extra_hard") # 20 Extra-Hard
+ds       = load_dataset("Lossfunk/Esolang-Bench")               # all 80 problems
+ds_easy  = load_dataset("Lossfunk/Esolang-Bench", "easy")       # 20 Easy
+ds_med   = load_dataset("Lossfunk/Esolang-Bench", "medium")     # 20 Medium
+ds_hard  = load_dataset("Lossfunk/Esolang-Bench", "hard")       # 20 Hard
+ds_xhard = load_dataset("Lossfunk/Esolang-Bench", "extra_hard") # 20 Extra-Hard
 
 # Each row: id, difficulty, title, description, test_cases (list of 6 {input, output} dicts)
 print(ds["test"][0])
