@@ -7,17 +7,17 @@
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-Lossfunk%2FEsolang--Bench-blue)](https://huggingface.co/datasets/Lossfunk/Esolang-Bench)
 [![Website](https://img.shields.io/badge/Website-esolang--bench.vercel.app-green)](https://esolang-bench.vercel.app)
 
-**Evaluating Genuine Reasoning in Large Language Models via Esoteric Programming Languages**
+**Evaluating Large Language Models via Esoteric Programming Languages**
 
 📄 **Paper:** [arxiv.org/abs/2603.09678](https://arxiv.org/abs/2603.09678)
 🌐 **Website:** [esolang-bench.vercel.app](https://esolang-bench.vercel.app)
 📦 **Dataset:** [huggingface.co/datasets/Lossfunk/Esolang-Bench](https://huggingface.co/datasets/Lossfunk/Esolang-Bench)
 
-EsoLang-Bench is a benchmark that tests frontier LLMs on code generation in esoteric programming languages: **Brainfuck**, **Befunge-98**, **Whitespace**, **Unlambda**, and **Shakespeare**. These languages have 1,000x–100,000x fewer public repositories than Python (based on GitHub search counts), exposing whether models can genuinely reason about novel computational paradigms or merely pattern-match from memorized code.
+EsoLang-Bench is a contamination-resistant benchmark that evaluates frontier LLMs on code generation in five Turing-complete esoteric programming languages: **Brainfuck**, **Befunge-98**, **Whitespace**, **Unlambda**, and **Shakespeare**. These languages have 340× to over 60,000× fewer public GitHub repositories than Python (verified May 2026 via topic-tag counts) and have negligible commercial deployment value, which together make large-scale contamination highly unlikely at corpus scale.
 
 ## Key Finding
 
-> The best frontier model (GPT-5.2) achieves **3.8%** on EsoLang-Bench vs. **~90%** on equivalent Python tasks -- an **85 percentage point gap** that reveals fundamental limitations in out-of-distribution code reasoning.
+> The same 80 problems expressed in Python or JavaScript reach **100%** on top frontier models, while peak esoteric accuracy is only **11.2%** (GPT-5.4 xhigh, self-scaffolding, Befunge-98) — an **89-point collapse** on identical algorithmic content. Few-shot prompting adds only **0.8 pp** over zero-shot (Wilcoxon p=0.505, n.s.).
 
 ## Installation
 
@@ -41,20 +41,25 @@ pip install -e ".[benchmark,dev]"
 
 ## Dataset
 
-The benchmark dataset (80 problems × 4 difficulty tiers) is available on Hugging Face:
+The benchmark dataset (80 problems × 4 difficulty tiers, evaluated independently in 5 esoteric languages = 400 problem-language combinations per prompting strategy) is available on Hugging Face:
 
 ```python
 from datasets import load_dataset
 
-ds       = load_dataset("Lossfunk/Esolang-Bench")               # all 80 problems
-ds_easy  = load_dataset("Lossfunk/Esolang-Bench", "easy")       # 20 Easy
-ds_med   = load_dataset("Lossfunk/Esolang-Bench", "medium")     # 20 Medium
-ds_hard  = load_dataset("Lossfunk/Esolang-Bench", "hard")       # 20 Hard
-ds_xhard = load_dataset("Lossfunk/Esolang-Bench", "extra_hard") # 20 Extra-Hard
+# All 80 problems (single config, single split)
+ds = load_dataset("Lossfunk/Esolang-Bench")["test"]
+
+# Filter by difficulty tier
+easy   = ds.filter(lambda r: r["difficulty"] == "easy")
+medium = ds.filter(lambda r: r["difficulty"] == "medium")
+hard   = ds.filter(lambda r: r["difficulty"] == "hard")
+xhard  = ds.filter(lambda r: r["difficulty"] == "extra_hard")
 
 # Each row: id, difficulty, title, description, test_cases (list of 6 {input, output} dicts)
-print(ds["test"][0])
+print(ds[0])
 ```
+
+A complete Croissant 1.1 metadata file with all seven NeurIPS-mandatory Responsible AI fields is shipped alongside the dataset on the HuggingFace Hub.
 
 ## Quick Start
 
@@ -142,25 +147,29 @@ Use `--difficulty all` (default) to run all problems.
 
 ## Supported Languages
 
-| Language | Paradigm | GitHub Repos | Best Accuracy |
-|----------|----------|-------------|---------------|
-| Brainfuck | Tape machine | ~5,000 | 13.8% (agentic) |
-| Befunge-98 | 2D grid | ~2,000 | 11.2% |
-| Whitespace | Invisible syntax | ~200 | 0% |
-| Unlambda | Combinators | ~100 | 1.2% |
-| Shakespeare | Theatrical | ~150 | 2.5% |
+| Language | Paradigm | GitHub topic repos (May 2026) | Peak esoteric accuracy |
+|----------|----------|-------------------------------:|-----------------------:|
+| Brainfuck | 8-command memory tape | 2,028 | 6.2% |
+| Befunge-98 | 2D stack-based grid | 86 | **11.2%** |
+| Whitespace | Stack-based, invisible | 125 | 0% |
+| Unlambda | Combinatory logic (s, k, i) | 25 | 1.2% |
+| Shakespeare | Theatrical-play dialogue | 11 | 2.5% |
+
+For reference: Python is tagged on 684,596 repositories and JavaScript on 648,084. The gap relative to Python ranges from ~340× for Brainfuck to over 60,000× for Shakespeare.
 
 ## Results Summary
 
-| Model | Best Strategy | Overall Accuracy |
-|-------|--------------|-----------------|
-| GPT-5.2 | Self-Scaffolding | 3.8% |
-| O4-mini-high | Self-Scaffolding | 3.2% |
-| Gemini 3 Pro | Self-Scaffolding | 2.8% |
-| Qwen3-235B | Self-Scaffolding | 1.0% |
-| Kimi K2 Thinking | Self-Scaffolding | 0.8% |
-| Codex (Agentic) | -- | 13.8% |
-| Claude Code | -- | 12.5% |
+Best per-model overall accuracy across all five prompting strategies (self-scaffolding is the dominant strategy):
+
+| Model | Best Strategy | Best per-language peak | Overall (across 5 langs) |
+|-------|--------------|------------------------|------------------------:|
+| GPT-5.4 xhigh | Self-Scaffolding | 11.2% (Befunge-98) | ~3.8% |
+| O4-mini-high | Self-Scaffolding | 10.0% (Befunge-98) | ~3.4% |
+| Gemini 3.1 Pro | Self-Scaffolding | 7.5% (Befunge-98) | ~2.6% |
+| Qwen3-235B | Self-Scaffolding | 2.5% (Brainfuck) | ~1.0% |
+| Kimi K2.5 | Self-Scaffolding | 1.2% (Shakespeare) | ~0.2% |
+
+Mainstream-language baselines (Python, JavaScript) reach 100% across all four difficulty tiers on the same 80 problems.
 
 ## Project Structure
 
@@ -189,15 +198,12 @@ pytest tests/ -v
 ## Citation
 
 ```bibtex
-@article{sharma2026esolangbench,
-  title={{EsoLang-Bench}: Evaluating Genuine Reasoning in Large Language Models via Esoteric Programming Languages},
-  author={Sharma, Aman and Chopra, Paras},
-  journal={arXiv preprint arXiv:2603.09678},
-  year={2026},
-  eprint={2603.09678},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG},
-  url={https://arxiv.org/abs/2603.09678}
+@inproceedings{sharma2026esolangbench,
+  title        = {{EsoLang-Bench}: Evaluating Large Language Models via Esoteric Programming Languages},
+  author       = {Sharma, Aman and Chopra, Paras},
+  booktitle    = {NeurIPS 2026 Track on Evaluations and Datasets},
+  year         = {2026},
+  organization = {Lossfunk}
 }
 ```
 

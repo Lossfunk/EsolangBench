@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Callable, List, Tuple
+from dataclasses import dataclass, field
+from typing import Callable, List, Optional, Tuple
 
 from .base import BaseInterpreter, ExecutionResult
 from .utils import InputBuffer, coerce_input
@@ -19,10 +19,17 @@ class Function:
 class EvalEnv:
     stdout: List[str]
     input_stream: InputBuffer
+    current_char: Optional[str] = None  # set by `@`, tested by `?x`, emitted by `|`
 
 
 class UnlambdaInterpreter(BaseInterpreter):
-    """Minimal-yet-useful Unlambda interpreter covering core combinators."""
+    """Unlambda interpreter covering the canonical combinators (`s`, `k`, `i`,
+    `.x`, `r`, `v`) plus the input/output character primitives `@`, `?x`, `|`.
+    The output combinator `r` is the spec-correct shorthand for printing a
+    newline (equivalent to `.<newline>`); `@` reads the next character from
+    stdin into a current-character register; `?x` tests the current character
+    against literal `x`; `|` re-emits the current character.
+    """
 
     language_name = "Unlambda"
 
@@ -56,10 +63,12 @@ class UnlambdaInterpreter(BaseInterpreter):
             trace={"steps": len(env.stdout)},
         )
 
+    # ------------------------------------------------------------------ parsing
+
     def _parse(self, code: str):
-        cleaned = []
+        cleaned: List[str] = []
         commenting = False
-        after_dot = False
+        consume_next_literal = False  # for `.x` and `?x`
         for ch in code:
             if commenting:
                 if ch in "\r\n":
@@ -68,14 +77,13 @@ class UnlambdaInterpreter(BaseInterpreter):
             if ch == "#":
                 commenting = True
                 continue
-            # Preserve whitespace immediately after a dot (for printing spaces)
-            if after_dot:
+            if consume_next_literal:
                 cleaned.append(ch)
-                after_dot = False
+                consume_next_literal = False
                 continue
-            if ch == ".":
+            if ch in {".", "?"}:
                 cleaned.append(ch)
-                after_dot = True
+                consume_next_literal = True
                 continue
             if ch in {" ", "\t", "\r", "\n"}:
                 continue
@@ -101,27 +109,45 @@ class UnlambdaInterpreter(BaseInterpreter):
                 raise ValueError("'.' missing character")
             literal = tokens[idx + 1]
             return ("dot", literal), idx + 2
-        if ch in {"s", "k", "i", "r"}:
+        if ch == "?":
+            if idx + 1 >= len(tokens):
+                raise ValueError("'?' missing character")
+            literal = tokens[idx + 1]
+            return ("query", literal), idx + 2
+        if ch in {"s", "k", "i", "r", "v", "@", "|"}:
             return ("symbol", ch), idx + 1
         raise ValueError(f"unsupported token '{ch}'")
+
+    # --------------------------------------------------------------- evaluation
 
     def _evaluate(self, node, env: EvalEnv) -> Function:
         kind = node[0]
         if kind == "symbol":
             return self._builtin(node[1], env)
         if kind == "dot":
-            char = "\n" if node[1] == "n" else node[1]
+            char = node[1]
 
             def printer(arg: Function) -> Function:
                 env.stdout.append(char)
                 return arg
 
             return Function(printer)
+        if kind == "query":
+            target = node[1]
+
+            def query(arg: Function) -> Function:
+                if env.current_char is not None and env.current_char == target:
+                    return arg(self._builtin("i", env))
+                return arg(self._builtin("v", env))
+
+            return Function(query)
         if kind == "apply":
             func = self._evaluate(node[1], env)
             arg = self._evaluate(node[2], env)
             return func(arg)
         raise RuntimeError("unknown AST node")
+
+    # ------------------------------------------------------------------ builtins
 
     def _builtin(self, symbol: str, env: EvalEnv) -> Function:
         if symbol == "s":
@@ -130,13 +156,34 @@ class UnlambdaInterpreter(BaseInterpreter):
             return Function(lambda x: Function(lambda y: x))
         if symbol == "i":
             return Function(lambda x: x)
+        if symbol == "v":
+            # void: applied to any argument, returns itself (a sink)
+            sink: Function
+            sink = Function(lambda x: sink)
+            return sink
         if symbol == "r":
-            def reader(x: Function) -> Function:
-                char = env.input_stream.read_char()
-                if char is None:
-                    raise RuntimeError("character input exhausted")
-                env.stdout.append(char)
-                return x
+            # spec: r is shorthand for .<newline>
+            def newline(arg: Function) -> Function:
+                env.stdout.append("\n")
+                return arg
 
-            return Function(reader)
+            return Function(newline)
+        if symbol == "@":
+            def read_char(arg: Function) -> Function:
+                ch = env.input_stream.read_char()
+                if ch is None:
+                    env.current_char = None
+                    return arg(self._builtin("v", env))
+                env.current_char = ch
+                return arg(self._builtin("i", env))
+
+            return Function(read_char)
+        if symbol == "|":
+            def reprint(arg: Function) -> Function:
+                if env.current_char is None:
+                    return arg(self._builtin("v", env))
+                env.stdout.append(env.current_char)
+                return arg(self._builtin("i", env))
+
+            return Function(reprint)
         raise RuntimeError(f"unsupported builtin '{symbol}'")

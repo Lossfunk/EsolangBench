@@ -366,7 +366,7 @@ class ShakespeareInterpreter(BaseInterpreter):
             left, right = self._split_pair(expr[15:], "and")
             return self._evaluate_expression(left, state) * self._evaluate_expression(right, state)
         if expr.startswith("the quotient between "):
-            left, right = self._split_pair(expr[22:], "and")
+            left, right = self._split_pair(expr[21:], "and")
             denominator = self._evaluate_expression(right, state)
             if denominator == 0:
                 raise RuntimeError("division by zero")
