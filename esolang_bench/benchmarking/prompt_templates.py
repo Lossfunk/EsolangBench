@@ -24,17 +24,6 @@ def _trim(text: str, limit: int = MAX_DOC_CHARS) -> str:
     return text[:limit] + "\n...[truncated]..."
 
 
-def _format_tests(tests: List[Dict[str, str]]) -> str:
-    lines = ["Specification tests (stdin => stdout):"]
-    for idx, case in enumerate(tests, 1):
-        lines.append(
-            f"{idx}.\n"
-            f"Input:\n{case.get('input', '')}\n"
-            f"Output:\n{case.get('output', '')}\n"
-        )
-    return "\n".join(lines)
-
-
 def _format_icl_examples(examples: List[Dict[str, Any]]) -> str:
     chunks = []
     for idx, example in enumerate(examples[:MAX_ICL_EXAMPLES], 1):
@@ -56,18 +45,23 @@ def _format_icl_examples(examples: List[Dict[str, Any]]) -> str:
 # =============================================================================
 
 def build_zero_shot_prompts(language_id: str, doc_text: str, problem: Dict[str, Any]) -> tuple[str, List[str]]:
-    """Build prompts for zero-shot code generation."""
+    """Build prompts for zero-shot code generation.
+
+    Note: the per-problem test cases that ship with the dataset are withheld
+    from the prompt. They are used by the evaluation harness only and are
+    never shown to the model during code generation.
+    """
     language_name = LANGUAGE_METADATA[language_id]["name"]
     system_prompt = (
         f"You are an expert {language_name} programmer. "
-        "Given a problem and sample tests, output ONLY valid code in this esoteric language. "
+        "Given a problem description, output ONLY valid code in this esoteric language. "
         "No explanations, no comments, no markdown. Programs must read stdin exactly as specified and "
         "write deterministic stdout that matches the expected output byte-for-byte."
         f"\n\nReference documentation:\n{_trim(doc_text)}"
     )
     user_prompt = (
         f"Problem ID: {problem['id']}\nTitle: {problem['title']}\n"
-        f"Description:\n{problem['description']}\n\n{_format_tests(problem['tests'])}\n"
+        f"Description:\n{problem['description']}\n\n"
         "Return only the program."
     )
     return system_prompt, [user_prompt]
@@ -91,7 +85,7 @@ def build_few_shot_prompts(
     examples_text = _format_icl_examples(icl_examples)
     problem_text = (
         f"Problem ID: {problem['id']}\nTitle: {problem['title']}\n"
-        f"Description:\n{problem['description']}\n\n{_format_tests(problem['tests'])}\n"
+        f"Description:\n{problem['description']}\n\n"
         "Return only the program."
     )
     return system_prompt, [examples_text, problem_text]
@@ -125,7 +119,7 @@ def build_self_scaffolding_prompt(
         messages.append("Reference examples:\n" + _format_icl_examples(icl_examples))
     prompt = (
         f"Problem ID: {problem['id']}\nTitle: {problem['title']}\n"
-        f"Description:\n{problem['description']}\n\n{_format_tests(problem['tests'])}"
+        f"Description:\n{problem['description']}"
     )
     if attempt_context:
         prompt += (
@@ -163,7 +157,7 @@ def build_textual_self_scaffolding_coder_prompt(
         messages.append("Reference examples:\n" + _format_icl_examples(icl_examples))
     prompt = (
         f"Problem ID: {problem['id']}\nTitle: {problem['title']}\n"
-        f"Description:\n{problem['description']}\n\n{_format_tests(problem['tests'])}"
+        f"Description:\n{problem['description']}"
     )
     if previous_code:
         prompt += f"\n\nPrevious attempt:\n{previous_code}"
@@ -226,7 +220,7 @@ def build_react_planner_prompt(
     )
     prompt = (
         f"Problem ID: {problem['id']}\nTitle: {problem['title']}\n"
-        f"Description:\n{problem['description']}\n\n{_format_tests(problem['tests'])}"
+        f"Description:\n{problem['description']}"
     )
     if previous_plan:
         prompt += f"\n\nPrevious plan:\n{previous_plan}"
@@ -261,7 +255,7 @@ def build_react_coder_prompt(
         messages.append("Reference examples:\n" + _format_icl_examples(icl_examples))
     prompt = (
         f"Problem ID: {problem['id']}\nTitle: {problem['title']}\n"
-        f"Description:\n{problem['description']}\n\n{_format_tests(problem['tests'])}\n\n"
+        f"Description:\n{problem['description']}\n\n"
         f"Algorithm to implement:\n{plan}\n\n"
         "Return only the program."
     )

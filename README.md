@@ -41,7 +41,7 @@ pip install -e ".[benchmark,dev]"
 
 ## Dataset
 
-The benchmark dataset (80 problems × 4 difficulty tiers, evaluated independently in 5 esoteric languages = 400 problem-language combinations per prompting strategy) is available on Hugging Face:
+The benchmark dataset (80 problems × 4 difficulty tiers, evaluated independently in 5 esoteric languages = 400 problem-language combinations per prompting strategy) is available on Hugging Face. Each problem ships with 6 input-output test cases that the evaluation harness uses to score model output. **The 6 test cases are withheld from the model's prompt and used by the harness only**; they are released publicly with the dataset for transparency and reproducibility but never enter the model's prompt context.
 
 ```python
 from datasets import load_dataset
